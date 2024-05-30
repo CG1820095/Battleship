@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 2 SHIP PLACEMENTS")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open(r"BattleshipGaming\images\images.jpg")))
+#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\images.jpg")))
 root.geometry("900x600")
 root.configure(background="pink")
 
@@ -45,7 +45,7 @@ def p2guessing():
         messagebox.showinfo("BATTLESHIPS", "killing game")
         print("killing board2")
         root.destroy()
-#        subprocess.run(["python", (r"BattleshipGaming\fourth.py")])
+#        subprocess.run(["python", ("fourth.py")])
 
 def p2resetplace():
     cursor.execute("UPDATE board_details SET player2_ships = NULL")
@@ -54,7 +54,7 @@ def p2resetplace():
     messagebox.showinfo("PLAYER 2 BOARD", "SHIP SELECTION RESET")
     print("killing board2")
     root.destroy()
-    subprocess.run(["python", (r"BattleshipGaming\fourth.py")])
+    subprocess.run(["python", ("fourth.py")])
 
 
 p2_con_place = Button(root, text="CONFIRM SHIP PLACEMENT", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black", command = p2guessing)

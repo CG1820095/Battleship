@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-#from PIL import ImageTk, Image
+from PIL import ImageTk, Image
 import subprocess
 import sqlite3
 from tkinter import messagebox 
@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 1 SHIP PLACEMENTS")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open(r"BattleshipGaming\images\images.jpg")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("Battleship\images\images.jpg")))
 root.geometry("900x600")
 root.configure(background="light green")
 
@@ -42,7 +42,7 @@ def p1guessing():
         messagebox.showinfo("PLAYER 1 CONFIRMED SHIP POSITIONS", "NOW PLAYER 2 PICKS THEIR SHIP LOCATIONS")
         print("killing board1")
         root.destroy()
-        subprocess.run(["python", (r"BattleshipGaming\fourth.py")])
+        subprocess.run(["python", ("fourth.py")])
 
 
 
@@ -53,7 +53,7 @@ def p1resetplace():
     messagebox.showinfo("PLAYER 1 BOARD", "SHIP SELECTION RESET")
     print("killing board1")
     root.destroy()
-    subprocess.run(["python", (r"BattleshipGaming\third.py")])
+    subprocess.run(["python", ("third.py")])
 
 
 p1_con_place = Button(root, text="CONFIRM SHIP PLACEMENT", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black", command = p1guessing)

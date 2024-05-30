@@ -1,5 +1,5 @@
 from tkinter import *
-#from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 from tkinter import messagebox
 import subprocess
 
@@ -8,7 +8,7 @@ root.title("Battleships Account Login  ((Admin) (123))")
 root.configure(background="light blue")
 root.geometry("400x400")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open(r"BattleshipGaming\images\b4b440dc84c8a3e2922f502f54a01764.jpg")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open(r"BattleshipGaming\images\b4b440dc84c8a3e2922f502f54a01764.jpg")))
 
 print("entered login page")
 
