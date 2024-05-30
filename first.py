@@ -8,7 +8,7 @@ root.title("Battleships")
 root.configure(background="light blue")
 #root.geometry("690x690")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("Battleship\images\icon.png")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\icon.png")))
 
 
 welcome = Label(root, text="Welcome to", pady=0, padx=40, font=("Comic Sans MS", 10), background="grey")
