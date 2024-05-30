@@ -8,7 +8,7 @@ root.title("Battleships Account Login  ((Admin) (123))")
 root.configure(background="light blue")
 root.geometry("400x400")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\b4b440dc84c8a3e2922f502f54a01764.jpg")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/b4b440dc84c8a3e2922f502f54a01764.jpg")))
 
 print("entered login page")
 
@@ -24,7 +24,7 @@ def Ok():
      elif(uname == "Admin" and password == "123"):        
            messagebox.showinfo("","Login Success")
            root.destroy()
-           subprocess.run(["python", r"BattleshipGaming\third.py"])
+           subprocess.run(["python", "third.py"])
        
      else :
            messagebox.showinfo("","Incorrent Username and Password")

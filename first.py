@@ -24,15 +24,15 @@ c.pack()
 def login():
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("Battleship/second.py")])
+    subprocess.run(["python", ("second.py")])
 
 
 login_here = Button(root, text="LOGIN", padx = 10, pady = 5, fg="black", bg="light blue", command = login)
 login_here.pack()
 
 
-#my_img = ImageTk.PhotoImage(Image.open ("Battleship\images\battleship.jpg"))
-#c.create_image(300, 120,image=my_img, )
+my_img = ImageTk.PhotoImage(Image.open ("images/battleship.jpg"))
+c.create_image(300, 120,image=my_img, )
 
 button_exit = Button(root, text="Exit Program", bg="yellow", command=root.quit)
 button_exit.pack()
