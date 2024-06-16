@@ -55,6 +55,4 @@ return_here = Button(root, text="Return", height = 3, width = 13, fg="black", bg
 
 button_exit = Button(root, text="Exit Program", bg="yellow", command=root.quit).place(x=160, y=200)
 
-
-
 root.mainloop()

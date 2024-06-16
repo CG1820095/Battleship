@@ -1,12 +1,12 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import subprocess
-#from pytube import YouTube
+
 
 root = Tk()
 root.title("Battleships")
 root.configure(background="light blue")
-#root.geometry("690x690")
+
 
 root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\icon.png")))
 
@@ -36,24 +36,5 @@ c.create_image(300, 120,image=my_img, )
 
 button_exit = Button(root, text="Exit Program", bg="yellow", command=root.quit)
 button_exit.pack()
-
-
-
-#try:
-#    url = input("Enter the YouTbue URL: ")
-
-#    yt = YouTube(url)
-
-#    print("Title: ", yt.title)
-#    print("Views:", yt.views)
-
-#    yd = yt.streams.get_highest_resolution()
-
-#    yd.download()
-
-#    print("Download complete. ")
-#except Exception as e:
-#    print("An error occurred: ", str(e))
-
 
 root.mainloop()
