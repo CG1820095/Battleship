@@ -49,11 +49,12 @@ Button(root, text="Login", command=Ok ,height = 3, width = 13).place(x=10, y=100
 def landing():
     print("killing login first")
     root.destroy()
-    subprocess.run(["python", (r"BattleshipGaming\first.py")])
+    subprocess.run(["python", ("first.py")])
 
 return_here = Button(root, text="Return", height = 3, width = 13, fg="black", bg="light blue", command = landing).place(x=270, y=100)
 
 button_exit = Button(root, text="Exit Program", bg="yellow", command=root.quit).place(x=160, y=200)
+
 
 
 root.mainloop()
