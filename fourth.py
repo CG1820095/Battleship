@@ -38,14 +38,12 @@ def p2guessing():
     if p2shipcount < 17:
         messagebox.showinfo("!!!","CHOOSE ALL YOUR 17 SHIP SPACES BEFORE CONFIRMATION")
     else:
-        #wip
-        messagebox.showinfo("note","next gameplay section is still a work in progress")
-#        messagebox.showinfo("PLAYER 2 CONFIRMED SHIP POSITIONS", "NOW PLAYER 1 GUESSES PLAYER 2'S SHIP LOCATIONS")    
+        messagebox.showinfo("PLAYER 2 CONFIRMED SHIP POSITIONS", "NOW PLAYER 1 GUESSES PLAYER 2'S SHIP LOCATIONS")    
         cursor.execute("DROP TABLE board_details")
         messagebox.showinfo("BATTLESHIPS", "killing game")
         print("killing board2")
         root.destroy()
-#        subprocess.run(["python", ("fourth.py")])
+        subprocess.run(["python", ("fifth.py")])
 
 def p2resetplace():
     cursor.execute("UPDATE board_details SET player2_ships = NULL")
