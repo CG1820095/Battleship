@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 1 GUESS PLAYER 2 SHIP PLACEMENTS")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\test5.png")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\eee.png")))
 root.geometry("900x600")
 root.configure(background="light green")
 
@@ -21,8 +21,8 @@ cursor =connection.cursor()
 cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
 
 
-board1 = Frame(root, background="light green")
-board1.place(relx=0.5, rely=0.5, anchor= CENTER,)
+board3 = Frame(root, background="light green")
+board3.place(relx=0.5, rely=0.5, anchor= CENTER,)
 
 
 def gamequit():
@@ -30,51 +30,54 @@ def gamequit():
     messagebox.showinfo("BATTLESHIPS", "killing game")
     root.quit()
 
-button_exit = Button(board1, text="Exit Program", bg="yellow", activebackground="red", activeforeground="white", command = gamequit )
+button_exit = Button(board3, text="Exit Program", bg="yellow", activebackground="red", activeforeground="white", command = gamequit )
 button_exit.grid(row=9, column=9)
 
 
 def p1guessing():
-    if p1shipcount < 17:
-        messagebox.showinfo("!!!PLAYER 1!!!","CHOOSE ALL YOUR 17 SHIP SPACES BEFORE CONFIRMATION")
+    if p1guesscount < 1:
+        messagebox.showinfo("!!!PLAYER 1!!!","GUESS 1 SHIP FROM PLAYER 2 BEFORE CONFIRMATION")
 
     else:
-        messagebox.showinfo("PLAYER 1 CONFIRMED SHIP POSITIONS", "NOW PLAYER 2 PICKS THEIR SHIP LOCATIONS")
-        print("killing board1")
-        root.destroy()
-        subprocess.run(["python", ("fourth.py")])
+        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
+        print("killing board3")
+        
+        cursor.execute("DROP TABLE board_details")
+        messagebox.showinfo("BATTLESHIPS", "killing game")
+        root.quit()
+#        subprocess.run(["python", ("sixth.py")])
 
 
 
-def p1resetplace(): 
-    cursor.execute("UPDATE board_details SET player1_ships = NULL")
-    cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL")
+def p1resetguess(): 
+    cursor.execute("UPDATE board_details SET player1_guess = NULL")
+    cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL")
     connection.commit()
-    messagebox.showinfo("PLAYER 1 BOARD", "SHIP SELECTION RESET")
-    print("killing board1")
+    messagebox.showinfo("PLAYER 1 BOARD", "PLAYER 2 SHIP GUESS RESET")
+    print("killing board3")
     root.destroy()
-    subprocess.run(["python", ("third.py")])
+    subprocess.run(["python", ("fifth.py")])
 
 
-p1_con_place = Button(root, text="CONFIRM SHIP PLACEMENT", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black", command = p1guessing)
+p1_con_place = Button(root, text="CONFIRM GUESS", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black", command = p1guessing)
 p1_con_place.grid()
 
-p1_res_place = Button(root, text="reset placement", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black",command = p1resetplace)
+p1_res_place = Button(root, text="reset guess", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black",command = p1resetguess)
 p1_res_place.grid()
 
 
 
-#Define global ship count.
-p1shipcount = 0
+#Define global guess count.
+p1guesscount = 0
 
 playerlabel = Label(text="PLAYER 1:", bg="light green")
 playerlabel.grid(row=7, column=0)
 
 #count display
-countlabel = Button(root, text = "place ships of any size", bg="light green", activebackground="light yellow")
+countlabel = Button(root, text = "guess an enemy ship location", bg="light green", activebackground="light yellow")
 countlabel.grid(row = 9, column = 0, columnspan = 2,)
 
-limitlabel = Label(text="(no more or less than 17 spaces)", bg="light green")
+limitlabel = Label(text="(you only get one guess)", bg="light green")
 limitlabel.grid(row=10, column=0)
 
 # Before first click
@@ -169,7 +172,7 @@ I8Clicked  = False
 I9Clicked  = False
 
 
-def shiplimit():
+def guesslimit():
     
     if A1Clicked == False:
         A1.configure(fg="black", bg="white", state=DISABLED)
@@ -348,181 +351,181 @@ def xAy1():
     global A1Clicked
     A1Clicked = not A1Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A1')")
 
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grid guessed"))
+    print(p1guesscount , " ship grid guessed")
 
     A1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
     
 
 def xAy2():
     global A2Clicked
     A2Clicked = not A2Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A2.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy3():
     global A3Clicked
     A3Clicked = not A3Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy4():
     global A4Clicked
     A4Clicked = not A4Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy5():
     global A5Clicked
     A5Clicked = not A5Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy6():
     global A6Clicked
     A6Clicked = not A6Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy7():
     global A7Clicked
     A7Clicked = not A7Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy8():
     global A8Clicked
     A8Clicked = not A8Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xAy9():
     global A9Clicked
     A9Clicked = not A9Clicked
 
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('A9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     A9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
  
@@ -530,181 +533,181 @@ def xBy1():
     global B1Clicked
     B1Clicked = not B1Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy2():
     global B2Clicked
     B2Clicked = not B2Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy3():
     global B3Clicked
     B3Clicked = not B3Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy4():
     global B4Clicked
     B4Clicked = not B4Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy5():
     global B5Clicked
     B5Clicked = not B5Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B5.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy6():
     global B6Clicked
     B6Clicked = not B6Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B6.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy7():
     global B7Clicked
     B7Clicked = not B7Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B7.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy8():
     global B8Clicked
     B8Clicked = not B8Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B8.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xBy9():
     global B9Clicked
     B9Clicked = not B9Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('B9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('B9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     B9.configure(fg="black", bg="green", state=DISABLED)
     
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
  
 
@@ -713,181 +716,181 @@ def xCy1():
     global C1Clicked
     C1Clicked = not C1Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy2():
     global C2Clicked
     C2Clicked = not C2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy3():
     global C3Clicked
     C3Clicked = not C3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy4():
     global C4Clicked
     C4Clicked = not C4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy5():
     global C5Clicked
     C5Clicked = not C5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy6():
     global C6Clicked
     C6Clicked = not C6Clicked  
      
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy7():
     global C7Clicked
     C7Clicked = not C7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy8():
     global C8Clicked
     C8Clicked = not C8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xCy9():
     global C9Clicked
     C9Clicked = not C9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('C9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('C9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     C9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -896,181 +899,181 @@ def xDy1():
     global D1Clicked
     D1Clicked = not D1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy2():
     global D2Clicked
     D2Clicked = not D2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy3():
     global D3Clicked
     D3Clicked = not D3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy4():
     global D4Clicked
     D4Clicked = not D4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy5():
     global D5Clicked
     D5Clicked = not D5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy6():
     global D6Clicked
     D6Clicked = not D6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy7():
     global D7Clicked
     D7Clicked = not D7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy8():
     global D8Clicked
     D8Clicked = not D8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xDy9():
     global D9Clicked
     D9Clicked = not D9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('D9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('D9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     D9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -1078,181 +1081,181 @@ def xEy1():
     global E1Clicked
     E1Clicked = not E1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy2():
     global E2Clicked
     E2Clicked = not E2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy3():
     global E3Clicked
     E3Clicked = not E3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy4():
     global E4Clicked
     E4Clicked = not E4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy5():
     global E5Clicked
     E5Clicked = not E5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy6():
     global E6Clicked
     E6Clicked = not E6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy7():
     global E7Clicked
     E7Clicked = not E7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy8():
     global E8Clicked
     E8Clicked = not E8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xEy9():
     global E9Clicked
     E9Clicked = not E9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('E9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('E9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     E9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -1261,181 +1264,181 @@ def xFy1():
     global F1Clicked
     F1Clicked = not F1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy2():
     global F2Clicked
     F2Clicked = not F2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy3():
     global F3Clicked
     F3Clicked = not F3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy4():
     global F4Clicked
     F4Clicked = not F4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy5():
     global F5Clicked
     F5Clicked = not F5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy6():
     global F6Clicked
     F6Clicked = not F6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy7():
     global F7Clicked
     F7Clicked = not F7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy8():
     global F8Clicked
     F8Clicked = not F8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xFy9():
     global F9Clicked
     F9Clicked = not F9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('F9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('F9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     F9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -1444,181 +1447,181 @@ def xGy1():
     global G1Clicked
     G1Clicked = not G1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy2():
     global G2Clicked
     G2Clicked = not G2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy3():
     global G3Clicked
     G3Clicked = not G3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy4():
     global G4Clicked
     G4Clicked = not G4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy5():
     global G5Clicked
     G5Clicked = not G5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy6():
     global G6Clicked
     G6Clicked = not G6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy7():
     global G7Clicked
     G7Clicked = not G7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy8():
     global G8Clicked
     G8Clicked = not G8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xGy9():
     global G9Clicked
     G9Clicked = not G9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('G9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('G9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     G9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -1627,181 +1630,181 @@ def xHy1():
     global H1Clicked
     H1Clicked = not H1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy2():
     global H2Clicked
     H2Clicked = not H2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy3():
     global H3Clicked
     H3Clicked = not H3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy4():
     global H4Clicked
     H4Clicked = not H4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy5():
     global H5Clicked
     H5Clicked = not H5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy6():
     global H6Clicked
     H6Clicked = not H6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy7():
     global H7Clicked
     H7Clicked = not H7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy8():
     global H8Clicked
     H8Clicked = not H8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xHy9():
     global H9Clicked
     H9Clicked = not H9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('H9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('H9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     H9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
@@ -1810,281 +1813,281 @@ def xIy1():
     global I1Clicked
     I1Clicked = not I1Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I1')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I1')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I1.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy2():
     global I2Clicked
     I2Clicked = not I2Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I2')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I2')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I2.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy3():
     global I3Clicked
     I3Clicked = not I3Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I3')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I3')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I3.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy4():
     global I4Clicked
     I4Clicked = not I4Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I4')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I4')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I4.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy5():
     global I5Clicked
     I5Clicked = not I5Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I5')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I5')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I5.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy6():
     global I6Clicked
     I6Clicked = not I6Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I6')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I6')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I6.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy7():
     global I7Clicked
     I7Clicked = not I7Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I7')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I7')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I7.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy8():
     global I8Clicked
     I8Clicked = not I8Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I8')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I8')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I8.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 def xIy9():
     global I9Clicked
     I9Clicked = not I9Clicked  
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('I9')")
+    cursor.execute("INSERT INTO board_details(player1_guess) VALUES('I9')")
     
     for row in cursor.execute("select * from board_details "): print(row)
     connection.commit()
 
-    global p1shipcount
-    p1shipcount += 1  # Update value of global variable.
-    countlabel.config(text= (p1shipcount, " ship grids chosen"))
-    print(p1shipcount , " ship grids placed")
+    global p1guesscount
+    p1guesscount += 1  # Update value of global variable.
+    countlabel.config(text= (p1guesscount, " ship grids chosen"))
+    print(p1guesscount , " ship grids placed")
 
 
     I9.configure(fg="black", bg="green", state=DISABLED)
 
-    if p1shipcount >= 17:
-       shiplimit()
+    if p1guesscount >= 1:
+       guesslimit()
 
 
 
-A1 = Button(board1, text="A1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xAy1,)
-A2 = Button(board1, text="A2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy2)
-A3 = Button(board1, text="A3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy3)
-A4 = Button(board1, text="A4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy4)
-A5 = Button(board1, text="A5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy5)
-A6 = Button(board1, text="A6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy6)
-A7 = Button(board1, text="A7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy7)
-A8 = Button(board1, text="A8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy8)
-A9 = Button(board1, text="A9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xAy9)
+A1 = Button(board3, text="A1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xAy1,)
+A2 = Button(board3, text="A2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy2)
+A3 = Button(board3, text="A3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy3)
+A4 = Button(board3, text="A4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy4)
+A5 = Button(board3, text="A5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy5)
+A6 = Button(board3, text="A6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy6)
+A7 = Button(board3, text="A7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy7)
+A8 = Button(board3, text="A8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xAy8)
+A9 = Button(board3, text="A9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xAy9)
 
 
-B1 = Button(board1, text="B1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy1)
-B2 = Button(board1, text="B2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy2)
-B3 = Button(board1, text="B3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy3)
-B4 = Button(board1, text="B4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy4)
-B5 = Button(board1, text="B5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy5)
-B6 = Button(board1, text="B6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy6)
-B7 = Button(board1, text="B7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy7)
-B8 = Button(board1, text="B8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy8)
-B9 = Button(board1, text="B9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy9)
+B1 = Button(board3, text="B1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy1)
+B2 = Button(board3, text="B2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy2)
+B3 = Button(board3, text="B3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy3)
+B4 = Button(board3, text="B4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy4)
+B5 = Button(board3, text="B5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy5)
+B6 = Button(board3, text="B6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy6)
+B7 = Button(board3, text="B7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy7)
+B8 = Button(board3, text="B8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xBy8)
+B9 = Button(board3, text="B9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xBy9)
 
 
-C1 = Button(board1, text="C1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy1)
-C2 = Button(board1, text="C2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy2)
-C3 = Button(board1, text="C3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy3)
-C4 = Button(board1, text="C4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy4)
-C5 = Button(board1, text="C5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy5)
-C6 = Button(board1, text="C6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy6)
-C7 = Button(board1, text="C7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy7)
-C8 = Button(board1, text="C8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy8)
-C9 = Button(board1, text="C9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy9)
+C1 = Button(board3, text="C1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy1)
+C2 = Button(board3, text="C2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy2)
+C3 = Button(board3, text="C3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy3)
+C4 = Button(board3, text="C4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy4)
+C5 = Button(board3, text="C5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy5)
+C6 = Button(board3, text="C6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy6)
+C7 = Button(board3, text="C7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xCy7)
+C8 = Button(board3, text="C8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy8)
+C9 = Button(board3, text="C9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xCy9)
 
 
-D1 = Button(board1, text="D1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xDy1)
-D2 = Button(board1, text="D2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy2)
-D3 = Button(board1, text="D3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy3)
-D4 = Button(board1, text="D4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy4)
-D5 = Button(board1, text="D5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy5)
-D6 = Button(board1, text="D6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy6)
-D7 = Button(board1, text="D7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy7)
-D8 = Button(board1, text="D8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy8)
-D9 = Button(board1, text="D9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xDy9)
+D1 = Button(board3, text="D1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xDy1)
+D2 = Button(board3, text="D2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy2)
+D3 = Button(board3, text="D3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy3)
+D4 = Button(board3, text="D4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy4)
+D5 = Button(board3, text="D5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy5)
+D6 = Button(board3, text="D6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy6)
+D7 = Button(board3, text="D7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy7)
+D8 = Button(board3, text="D8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xDy8)
+D9 = Button(board3, text="D9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xDy9)
 
 
-E1 = Button(board1, text="E1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy1)
-E2 = Button(board1, text="E2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy2)
-E3 = Button(board1, text="E3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy3)
-E4 = Button(board1, text="E4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy4)
-E5 = Button(board1, text="E5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy5)
-E6 = Button(board1, text="E6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy6)
-E7 = Button(board1, text="E7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy7)
-E8 = Button(board1, text="E8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy8)
-E9 = Button(board1, text="E9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy9)
+E1 = Button(board3, text="E1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy1)
+E2 = Button(board3, text="E2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy2)
+E3 = Button(board3, text="E3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy3)
+E4 = Button(board3, text="E4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy4)
+E5 = Button(board3, text="E5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy5)
+E6 = Button(board3, text="E6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy6)
+E7 = Button(board3, text="E7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy7)
+E8 = Button(board3, text="E8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xEy8)
+E9 = Button(board3, text="E9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xEy9)
 
 
-F1 = Button(board1, text="F1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy1)
-F2 = Button(board1, text="F2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy2)
-F3 = Button(board1, text="F3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy3)
-F4 = Button(board1, text="F4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy4)
-F5 = Button(board1, text="F5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy5)
-F6 = Button(board1, text="F6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy6)
-F7 = Button(board1, text="F7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy7)
-F8 = Button(board1, text="F8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy8)
-F9 = Button(board1, text="F9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy9)
+F1 = Button(board3, text="F1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy1)
+F2 = Button(board3, text="F2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy2)
+F3 = Button(board3, text="F3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy3)
+F4 = Button(board3, text="F4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy4)
+F5 = Button(board3, text="F5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy5)
+F6 = Button(board3, text="F6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy6)
+F7 = Button(board3, text="F7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xFy7)
+F8 = Button(board3, text="F8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy8)
+F9 = Button(board3, text="F9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xFy9)
 
 
-G1 = Button(board1, text="G1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xGy1)
-G2 = Button(board1, text="G2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy2)
-G3 = Button(board1, text="G3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy3)
-G4 = Button(board1, text="G4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy4)
-G5 = Button(board1, text="G5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy5)
-G6 = Button(board1, text="G6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy6)
-G7 = Button(board1, text="G7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy7)
-G8 = Button(board1, text="G8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy8)
-G9 = Button(board1, text="G9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xGy9)
+G1 = Button(board3, text="G1", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xGy1)
+G2 = Button(board3, text="G2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy2)
+G3 = Button(board3, text="G3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy3)
+G4 = Button(board3, text="G4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy4)
+G5 = Button(board3, text="G5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy5)
+G6 = Button(board3, text="G6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy6)
+G7 = Button(board3, text="G7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy7)
+G8 = Button(board3, text="G8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xGy8)
+G9 = Button(board3, text="G9", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xGy9)
 
 
-H1 = Button(board1, text="H1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy1)
-H2 = Button(board1, text="H2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy2)
-H3 = Button(board1, text="H3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy3)
-H4 = Button(board1, text="H4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy4)
-H5 = Button(board1, text="H5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy5)
-H6 = Button(board1, text="H6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy6)
-H7 = Button(board1, text="H7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy7)
-H8 = Button(board1, text="H8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy8)
-H9 = Button(board1, text="H9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy9)
+H1 = Button(board3, text="H1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy1)
+H2 = Button(board3, text="H2", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy2)
+H3 = Button(board3, text="H3", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy3)
+H4 = Button(board3, text="H4", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy4)
+H5 = Button(board3, text="H5", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy5)
+H6 = Button(board3, text="H6", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy6)
+H7 = Button(board3, text="H7", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy7)
+H8 = Button(board3, text="H8", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xHy8)
+H9 = Button(board3, text="H9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xHy9)
 
 
-I1 = Button(board1, text="I1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy1)
-I2 = Button(board1, text="I2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy2)
-I3 = Button(board1, text="I3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy3)
-I4 = Button(board1, text="I4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy4)
-I5 = Button(board1, text="I5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy5)
-I6 = Button(board1, text="I6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy6)
-I7 = Button(board1, text="I7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy7)
-I8 = Button(board1, text="I8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy8)
-I9 = Button(board1, text="I9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy9)
+I1 = Button(board3, text="I1", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy1)
+I2 = Button(board3, text="I2", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy2)
+I3 = Button(board3, text="I3", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy3)
+I4 = Button(board3, text="I4", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy4)
+I5 = Button(board3, text="I5", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy5)
+I6 = Button(board3, text="I6", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy6)
+I7 = Button(board3, text="I7", padx = 15, pady = 15, fg="white", bg="blue", activebackground="hot pink", command = xIy7)
+I8 = Button(board3, text="I8", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy8)
+I9 = Button(board3, text="I9", padx = 15, pady = 15, fg="black", bg="light blue", activebackground="hot pink", command = xIy9)
 
 
 A1.grid(row = 0, column = 0,)
@@ -2176,6 +2179,11 @@ I6.grid(row = 5, column = 8,)
 I7.grid(row = 6, column = 8,)
 I8.grid(row = 7, column = 8,)
 I9.grid(row = 8, column = 8,)
+
+
+
+
+
 
 
 

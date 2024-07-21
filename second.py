@@ -12,6 +12,13 @@ root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/b
 
 print("entered login page")
 
+#string boundary check
+#limit size to 9 - 10 (no more or less)
+#empty not accepted
+#check contain at least 2 numbers
+#contain at least one capital
+
+
 
 def Ok():
      uname = e1.get()
