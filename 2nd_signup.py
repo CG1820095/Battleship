@@ -1,39 +1,26 @@
-
-#password check
-"""
-(for the signup page - for version 1) test to check that if that if the password entered matches the comfirm password entered that the password validation will work
-"""
-
 from tkinter import *
+from PIL import Image, ImageTk
 from tkinter import ttk
 import subprocess
 import sqlite3
 import re 
+from tkinter import messagebox 
 
 root = Tk()
-root.title("Create password")
+root.title("Create Account")
+
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/test.png")))
+
 
 root.configure(background="Light blue")
 
 #prevents NameError: name 'message_label'
 message_label = None
 
-connection = sqlite3.connect('passwords.db')
+connection = sqlite3.connect('battleships.db')
 cursor = connection.cursor()
 
 cursor.execute("create table if not exists account_details(username text, userpassword text)")
-
-#def resetusern(): 
-#    cursor.execute("UPDATE account_details SET player1_ships = NULL")
-#    cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL")
-#    connection.commit()
-#    messagebox.showinfo("PLAYER 1 BOARD", "SHIP SELECTION RESET")
-#    print("killing board1")
-#    root.destroy()
-#    subprocess.run(["python", ("third.py")])
-
-#reset_usern = Button(root, text="clear username", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black",command = p1resetplace)
-#reset_usern.grid()
 
 
 def create_account():
@@ -41,10 +28,7 @@ def create_account():
     # Get password
     password = Entry_password.get()
     confirm_password = Entry_confirmpassword.get()
-
-
-    for row in cursor.execute("select * from account_details"): print(row)
-    connection.commit()
+    username = Entry_username.get()
 
       # Hide the existing message_label if it's present
     if message_label:
@@ -53,52 +37,62 @@ def create_account():
     if len(password) < 8 or len(password) > 20:
         message_label = ttk.Label(root, text="Password must be between 8 and 20 characters.", foreground="red",
                                   background="Light blue", font=('Arial', 12, 'bold'))
-        message_label.grid(row=8, column=0, padx=10, pady=5, columnspan=2)
+        message_label.grid(row=14, column=0, padx=10, pady=5, columnspan=2)
         return
 
     # Check if the password contains at least one uppercase letter and one number
     if not re.search(r'[A-Z]', password) or not re.search(r'\d', password):
         message_label = ttk.Label(root, text="Password must contain at least one\n uppercase letter and one number.",
                                   foreground="red", background="Light blue", font=('Arial', 12, 'bold'))
-        message_label.grid(row=8, column=0, padx=10, pady=5, columnspan=2)
+        message_label.grid(row=14, column=0, padx=10, pady=5, columnspan=2)
         return
 
     elif password != confirm_password:
             # Check if the passwords match
             message_label = ttk.Label(root, text="Passwords don't match.", foreground="red",
                                     background="Light blue", font=('Arial', 12, 'bold'))
-            message_label.grid(row=8, column=0, padx=10, pady=5, columnspan=2)
+            message_label.grid(row=14, column=0, padx=10, pady=5, columnspan=2)
     
     else: #if the password meets all the requirements then it can be saved to the database
-        print(password)
-
-        save = cursor.execute("INSERT INTO account_details(userpassword) VALUES(?)")
-        connection.execute(save, (password,))
-
-
-        for row in cursor.execute("select * from account_details "): print(row)
+        cursor.execute("INSERT INTO account_details(userpassword,username) VALUES('{}', '{}')".format(password, username))
         connection.commit()
+        messagebox.showinfo("BATTLESHIPS", "Signup complete", "Entering game")
+        root.quit()
+        subprocess.run(["python", ("third.py")])
 
-        #sql = "INSERT INTO TABLE (COLUMN) VALUES (?)"
-        #conn.execute(sql, (user_input,))
+        
 
 Label_signup = ttk.Label(root, text="Sign up", font=("Arial", 20, "bold"), background="Light Blue")
 Label_signup.grid(row=1, column=0, pady=30, padx=100)
 
+Label_username = ttk.Label(root, text="Username", font=("Arial", 12, "bold"), background="Light Blue")
+Label_username.grid(row=3, column=0, pady=0, padx=100)
+
+Entry_username = ttk.Entry(root,)
+Entry_username.grid(row=4, column=0, pady=0, padx=100)
+
 Label_password = ttk.Label(root, text="Password", font=("Arial", 12, "bold"), background="Light Blue")
-Label_password.grid(row=4, column=0, pady=0, padx=100)
+Label_password.grid(row=6, column=0, pady=(20,0), padx=100)
 
 Entry_password = ttk.Entry(root, show="*")
-Entry_password.grid(row=5, column=0, pady=0, padx=100)
+Entry_password.grid(row=7, column=0, pady=0, padx=100)
 
 Label_confirmpassword = ttk.Label(root, text="Confirm Password", font=("Arial", 10,), background="Light Blue")
-Label_confirmpassword.grid(row=6, column=0, pady=(20,0), padx=100)
+Label_confirmpassword.grid(row=8, column=0, pady=(20,0), padx=100)
 
 Entry_confirmpassword = ttk.Entry(root, show="*")
-Entry_confirmpassword.grid(row=7, column=0, padx=100)
+Entry_confirmpassword.grid(row=9, column=0, padx=100)
 
 #create account
 Button = ttk.Button(root, text="Create Account", command=create_account)  
-Button.grid(row=9, column=0, pady=(25,0), padx=100)
+Button.grid(row=10, column=0, pady=(25,0), padx=100)
+
+def landing():
+    root.destroy()
+    subprocess.run(["python", ("first.py")])
+    messagebox.showinfo("BATTLESHIPS", "returning to landing page")
+
+Button = ttk.Button(root, text="return", command=create_account)  
+Button.grid(row=10, column=2, pady=(25,0), padx=100)
 
 root.mainloop()

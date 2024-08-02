@@ -24,11 +24,19 @@ c.pack()
 def login():
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("second.py")])
-
+    subprocess.run(["python", ("2nd_login.py")])
 
 login_here = Button(root, text="LOGIN", padx = 10, pady = 5, fg="black", bg="light blue", command = login)
 login_here.pack()
+
+
+def signup():
+    print("killing landing first")
+    root.destroy()
+    subprocess.run(["python", ("2nd_signup.py")])
+
+signup_here = Button(root, text="SIGN UP", padx = 10, pady = 5, fg="black", bg="light blue", command = signup)
+signup_here.pack()
 
 
 my_img = ImageTk.PhotoImage(Image.open ("images/battleship.jpg"))
