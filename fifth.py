@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 1 GUESS PLAYER 2 SHIP PLACEMENTS")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\eee.png")))
+#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\eee.png")))
 root.geometry("900x600")
 root.configure(background="light green")
 
