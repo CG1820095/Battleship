@@ -56,8 +56,8 @@ def create_account():
     else: #if the password meets all the requirements then it can be saved to the database
         cursor.execute("INSERT INTO account_details(userpassword,username) VALUES('{}', '{}')".format(password, username))
         connection.commit()
-        messagebox.showinfo("BATTLESHIPS", "Signup complete", "Entering game")
-        root.quit()
+        messagebox.showinfo("BATTLESHIPS", "Signup complete")
+        root.destroy()
         subprocess.run(["python", ("third.py")])
 
         
@@ -89,10 +89,10 @@ Button.grid(row=10, column=0, pady=(25,0), padx=100)
 
 def landing():
     root.destroy()
-    subprocess.run(["python", ("first.py")])
     messagebox.showinfo("BATTLESHIPS", "returning to landing page")
-
-Button = ttk.Button(root, text="return", command=create_account)  
-Button.grid(row=10, column=2, pady=(25,0), padx=100)
+    subprocess.run(["python", ("first.py")])
+    
+Button = ttk.Button(root, text="return", command=landing)  
+Button.grid(row=11, column=0, pady=(25,0), padx=100)
 
 root.mainloop()

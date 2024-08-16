@@ -15,7 +15,7 @@ root.configure(background="light green")
 
 
 connection = sqlite3.connect("battleships.db")
-cursor =connection.cursor()
+cursor = connection.cursor()
 
 
 cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
@@ -348,11 +348,6 @@ def xAy1():
     global A1Clicked
     A1Clicked = not A1Clicked 
     
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A1')")
-
-    for row in cursor.execute("select * from board_details "): print(row)
-    connection.commit()
-
     global p1shipcount
     p1shipcount += 1  # Update value of global variable.
     countlabel.config(text= (p1shipcount, " ship grids chosen"))
@@ -362,16 +357,19 @@ def xAy1():
 
     if p1shipcount >= 17:
        shiplimit()
+
+    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A1')")
+
+    for row in cursor.execute("select * from board_details "): print(row)
+
+    connection.commit()
+
+
     
 
 def xAy2():
     global A2Clicked
     A2Clicked = not A2Clicked
-
-    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A2')")
-    
-    for row in cursor.execute("select * from board_details "): print(row)
-    connection.commit()
 
     global p1shipcount
     p1shipcount += 1  # Update value of global variable.
@@ -383,6 +381,14 @@ def xAy2():
     
     if p1shipcount >= 17:
        shiplimit()
+
+    cursor.execute("INSERT INTO board_details(player1_ships) VALUES('A2')")
+    
+    for row in cursor.execute("select * from board_details "): print(row)
+
+    connection.commit()
+
+
 
 def xAy3():
     global A3Clicked

@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import subprocess
-
+import sqlite3
 
 root = Tk()
 root.title("Battleships")
@@ -16,6 +16,14 @@ welcome.pack()
 myLabel = Label(root, text="BATTLESHIPS", pady=0, padx=10, font=("Arial", 35, 'bold'), background="grey")
 myLabel.pack()
 
+connection = sqlite3.connect("battleships.db")
+cursor =connection.cursor()
+
+
+#cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
+
+connection.commit()
+connection.close()
 
 c = Canvas(root, width=600, height=275, background="grey")
 c.pack()

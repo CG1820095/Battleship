@@ -20,6 +20,16 @@ cursor =connection.cursor()
 
 cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
 
+#board_list = {"A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool"}
+#cursor.execute("create table if not exists p1_reveals('{}')".format(board_list))
+
+
+cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool)")
+connection.commit()
+#cursor.execute("INSERT INTO p1_reveals() WHERE * = NULL".format(0))
+
+
+
 
 board3 = Frame(root, background="light green")
 board3.place(relx=0.5, rely=0.5, anchor= CENTER,)
@@ -27,6 +37,7 @@ board3.place(relx=0.5, rely=0.5, anchor= CENTER,)
 
 def gamequit():
     cursor.execute("DROP TABLE board_details")
+    cursor.execute("DROP TABLE p1_reveals")
     messagebox.showinfo("BATTLESHIPS", "killing game")
     root.quit()
 
@@ -39,12 +50,13 @@ def p1guessing():
         messagebox.showinfo("!!!PLAYER 1!!!","GUESS 1 SHIP FROM PLAYER 2 BEFORE CONFIRMATION")
 
     else:
+        guesscheck()
         messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
-        print("killing board3")
         
-        cursor.execute("DROP TABLE board_details")
-        messagebox.showinfo("BATTLESHIPS", "killing game")
-        root.quit()
+        
+        # cursor.execute("DROP TABLE board_details")
+        # messagebox.showinfo("BATTLESHIPS", "killing game")
+        # root.quit()
 #        subprocess.run(["python", ("sixth.py")])
 
 
@@ -2183,7 +2195,221 @@ I9.grid(row = 8, column = 8,)
 
 
 
+#cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool)")
 
+
+
+
+# cursor.execute("SELECT * FROM board_details WHERE player1_ships = '{}' and player2_guess = '{}'".format(A1Clicked))
+
+# for row in cursor.execute("select * from board_details "): print(row)
+
+# connection.commit()
+
+def guesscheck():
+    
+    if A1Clicked == True:
+        for row in cursor.execute("select * from board_details "): print(row)
+
+        if cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'") == TRUE:
+            A1.configure(fg="black", bg="red", state=DISABLED)
+            print("A1 - HIT") 
+        elif cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'") == FALSE:
+            A1.configure(fg="black", bg="blue", state=DISABLED)
+            print("A1 - miss")
+
+        connection.commit()
+
+    if A2Clicked == True:
+        for row in cursor.execute("select * from board_details "): print(row)
+        
+        if cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A2' and player2_guess = 'A2'") == TRUE:
+            A2.configure(fg="black", bg="red", state=DISABLED)
+            print("A2 - HIT") 
+        elif cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A2' and player2_guess = 'A2'") == FALSE:
+            A2.configure(fg="black", bg="blue", state=DISABLED)
+            print("A2 - miss")
+
+        connection.commit()
+
+
+    if A3Clicked == True:
+        cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A3' and player2_guess = 'A3'")
+        
+        for row in cursor.execute("select * from board_details "): print(row)
+        connection.commit()
+
+        A3.configure(fg="black", bg="red", state=DISABLED)
+        print("A3 - HIT")
+    elif A3Clicked == True:
+        A3.configure(fg="black", bg="blue", state=DISABLED)
+        print("A3 - miss")
+
+    if A4Clicked == True:
+        A4.configure(fg="black", bg="white", state=DISABLED)
+    if A5Clicked == True:
+        A5.configure(fg="black", bg="white", state=DISABLED)
+    if A6Clicked == True:
+        A6.configure(fg="black", bg="white", state=DISABLED)
+    if A7Clicked == True:
+        A7.configure(fg="black", bg="white", state=DISABLED)
+    if A8Clicked == True:
+        A8.configure(fg="black", bg="white", state=DISABLED)
+    if A9Clicked == True:
+        A9.configure(fg="black", bg="white", state=DISABLED)
+    
+    
+    if B1Clicked == True:
+        B1.configure(fg="black", bg="white", state=DISABLED)
+    if B2Clicked == True:
+        B2.configure(fg="black", bg="white", state=DISABLED)
+    if B3Clicked == True:
+        B3.configure(fg="black", bg="white", state=DISABLED)
+    if B4Clicked == True:
+        B4.configure(fg="black", bg="white", state=DISABLED)
+    if B5Clicked == True:
+        B5.configure(fg="black", bg="white", state=DISABLED)
+    if B6Clicked == True:
+        B6.configure(fg="black", bg="white", state=DISABLED)
+    if B7Clicked == True:
+        B7.configure(fg="black", bg="white", state=DISABLED)
+    if B8Clicked == True:
+        B8.configure(fg="black", bg="white", state=DISABLED)
+    if B9Clicked == True:
+        B9.configure(fg="black", bg="white", state=DISABLED)
+
+    if C1Clicked == True:
+        C1.configure(fg="black", bg="white", state=DISABLED)
+    if C2Clicked == True:
+        C2.configure(fg="black", bg="white", state=DISABLED)
+    if C3Clicked == True:
+        C3.configure(fg="black", bg="white", state=DISABLED)
+    if C4Clicked == True:
+        C4.configure(fg="black", bg="white", state=DISABLED)
+    if C5Clicked == True:
+        C5.configure(fg="black", bg="white", state=DISABLED)
+    if C6Clicked == True:
+        C6.configure(fg="black", bg="white", state=DISABLED)
+    if C7Clicked == True:
+        C7.configure(fg="black", bg="white", state=DISABLED)
+    if C8Clicked == True:
+        C8.configure(fg="black", bg="white", state=DISABLED)
+    if C9Clicked == True:
+        C9.configure(fg="black", bg="white", state=DISABLED)
+        
+    if D1Clicked == True:
+        D1.configure(fg="black", bg="white", state=DISABLED)
+    if D2Clicked == True:
+        D2.configure(fg="black", bg="white", state=DISABLED)
+    if D3Clicked == True:
+        D3.configure(fg="black", bg="white", state=DISABLED)
+    if D4Clicked == True:
+        D4.configure(fg="black", bg="white", state=DISABLED)
+    if D5Clicked == True:
+        D5.configure(fg="black", bg="white", state=DISABLED)
+    if D6Clicked == True:
+        D6.configure(fg="black", bg="white", state=DISABLED)
+    if D7Clicked == True:
+        D7.configure(fg="black", bg="white", state=DISABLED)
+    if D8Clicked == True:
+        D8.configure(fg="black", bg="white", state=DISABLED)
+    if D9Clicked == True:
+        D9.configure(fg="black", bg="white", state=DISABLED)
+        
+    if E1Clicked == True:
+        E1.configure(fg="black", bg="white", state=DISABLED)
+    if E2Clicked == True:
+        E2.configure(fg="black", bg="white", state=DISABLED)
+    if E3Clicked == True:
+        E3.configure(fg="black", bg="white", state=DISABLED)
+    if E4Clicked == True:
+        E4.configure(fg="black", bg="white", state=DISABLED)
+    if E5Clicked == True:
+        E5.configure(fg="black", bg="white", state=DISABLED)
+    if E6Clicked == True:
+        E6.configure(fg="black", bg="white", state=DISABLED)
+    if E7Clicked == True:
+        E7.configure(fg="black", bg="white", state=DISABLED)
+    if E8Clicked == True:
+        E8.configure(fg="black", bg="white", state=DISABLED)
+    if E9Clicked == True:
+        E9.configure(fg="black", bg="white", state=DISABLED)
+        
+    if F1Clicked == True:
+        F1.configure(fg="black", bg="white", state=DISABLED)
+    if F2Clicked == True:
+        F2.configure(fg="black", bg="white", state=DISABLED)
+    if F3Clicked == True:
+        F3.configure(fg="black", bg="white", state=DISABLED)
+    if F4Clicked == True:
+        F4.configure(fg="black", bg="white", state=DISABLED)
+    if F5Clicked == True:
+        F5.configure(fg="black", bg="white", state=DISABLED)
+    if F6Clicked == True:
+        F6.configure(fg="black", bg="white", state=DISABLED)
+    if F7Clicked == True:
+        F7.configure(fg="black", bg="white", state=DISABLED)
+    if F8Clicked == True:
+        F8.configure(fg="black", bg="white", state=DISABLED)
+    if F9Clicked == True:
+        F9.configure(fg="black", bg="white", state=DISABLED)
+        
+    if G1Clicked == True:
+        G1.configure(fg="black", bg="white", state=DISABLED)
+    if G2Clicked == True:
+        G2.configure(fg="black", bg="white", state=DISABLED)
+    if G3Clicked == True:
+        G3.configure(fg="black", bg="white", state=DISABLED)
+    if G4Clicked == True:
+        G4.configure(fg="black", bg="white", state=DISABLED)
+    if G5Clicked == True:
+        G5.configure(fg="black", bg="white", state=DISABLED)
+    if G6Clicked == True:
+        G6.configure(fg="black", bg="white", state=DISABLED)
+    if G7Clicked == True:
+        G7.configure(fg="black", bg="white", state=DISABLED)
+    if G8Clicked == True:
+        G8.configure(fg="black", bg="white", state=DISABLED)
+    if G9Clicked == True:
+        G9.configure(fg="black", bg="white", state=DISABLED)
+    
+    if H1Clicked == True:
+        H1.configure(fg="black", bg="white", state=DISABLED)
+    if H2Clicked == True:
+        H2.configure(fg="black", bg="white", state=DISABLED)
+    if H3Clicked == True:
+        H3.configure(fg="black", bg="white", state=DISABLED)
+    if H4Clicked == True:
+        H4.configure(fg="black", bg="white", state=DISABLED)
+    if H5Clicked == True:
+        H5.configure(fg="black", bg="white", state=DISABLED)
+    if H6Clicked == True:
+        H6.configure(fg="black", bg="white", state=DISABLED)
+    if H7Clicked == True:
+        H7.configure(fg="black", bg="white", state=DISABLED)
+    if H8Clicked == True:
+        H8.configure(fg="black", bg="white", state=DISABLED)
+    if H9Clicked == True:
+        H9.configure(fg="black", bg="white", state=DISABLED)
+        
+    if I1Clicked == True:
+        I1.configure(fg="black", bg="white", state=DISABLED)
+    if I2Clicked == True:
+        I2.configure(fg="black", bg="white", state=DISABLED)
+    if I3Clicked == True:
+        I3.configure(fg="black", bg="white", state=DISABLED)
+    if I4Clicked == True:
+        I4.configure(fg="black", bg="white", state=DISABLED)
+    if I5Clicked == True:
+        I5.configure(fg="black", bg="white", state=DISABLED)
+    if I6Clicked == True:
+        I6.configure(fg="black", bg="white", state=DISABLED)
+    if I7Clicked == True:
+        I7.configure(fg="black", bg="white", state=DISABLED)
+    if I8Clicked == True:
+        I8.configure(fg="black", bg="white", state=DISABLED)
+    if I9Clicked == True:
+        I9.configure(fg="black", bg="white", state=DISABLED)
 
 
 
