@@ -24,15 +24,8 @@ cursor.execute("create table if not exists board_details(player1_ships text, pla
 #cursor.execute("create table if not exists p1_reveals('{}')".format(board_list))
 
 
-cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool)")
+cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool, D1 bool, D2 bool, D3 bool, D4 bool, D5 bool, D6 bool, D7 bool, D8 bool, D9 bool, E1 bool, E2 bool, E3 bool, E4 bool, E5 bool, E6 bool, E7 bool, E8 bool, E9 bool, F1 bool, F2 bool, F3 bool, F4 bool, F5 bool, F6 bool, F7 bool, F8 bool, F9 bool, G1 bool, G2 bool, G3 bool, G4 bool, G5 bool, G6 bool, G7 bool, G8 bool, G9 bool, H1 bool, H2 bool, H3 bool, H4 bool, H5 bool, H6 bool, H7 bool, H8 bool, H9 bool, I1 bool, I2 bool, I3 bool, I4 bool, I5 bool, I6 bool, I7 bool, I8 bool, I9 bool)")
 connection.commit()
-
-#D1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
-#E1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
-#F1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
-#G1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
-#H1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
-#I1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
 
 
 board3 = Frame(root, background="light green")
@@ -55,10 +48,9 @@ def p1guessing():
 
     else:
         guesscheck()
-        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "temp reset test fifth")
-
+        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "temp reset board to test fifth")
+        root.destroy()
         subprocess.run(["python", ("fifth.py")])
-
 #        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
 #        subprocess.run(["python", ("sixth.py")])
 
@@ -2296,6 +2288,808 @@ def ship_history():
                 if row == (1,):
                     print("A9 - hit")
                     A9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B1')"):
+                if row == (0,):
+                    print("B1 - miss")
+                    B1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B1 - hit")
+                    B1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B2')"):
+                if row == (0,):
+                    print("B2 - miss")
+                    B2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B2 - hit")
+                    B2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B3')"):
+                if row == (0,):
+                    print("B3 - miss")
+                    B3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B3 - hit")
+                    B3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B4')"):
+                if row == (0,):
+                    print("B4 - miss")
+                    B4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B4 - hit")
+                    B4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B5')"):
+                if row == (0,):
+                    print("B5 - miss")
+                    B5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B5 - hit")
+                    B5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B6')"):
+                if row == (0,):
+                    print("B6 - miss")
+                    B6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B6 - hit")
+                    B6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B7')"):
+                if row == (0,):
+                    print("B7 - miss")
+                    B7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B7 - hit")
+                    B7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B8')"):
+                if row == (0,):
+                    print("B8 - miss")
+                    B8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B8 - hit")
+                    B8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B9')"):
+                if row == (0,):
+                    print("B9 - miss")
+                    B9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("B9 - hit")
+                    B9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C1')"):
+                if row == (0,):
+                    print("C1 - miss")
+                    C1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C1 - hit")
+                    C1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C2')"):
+                if row == (0,):
+                    print("C2 - miss")
+                    C2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C2 - hit")
+                    C2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C3')"):
+                if row == (0,):
+                    print("C3 - miss")
+                    C3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C3 - hit")
+                    C3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C4')"):
+                if row == (0,):
+                    print("C4 - miss")
+                    C4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C4 - hit")
+                    C4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C5')"):
+                if row == (0,):
+                    print("C5 - miss")
+                    C5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C5 - hit")
+                    C5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C6')"):
+                if row == (0,):
+                    print("C6 - miss")
+                    C6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C6 - hit")
+                    C6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C7')"):
+                if row == (0,):
+                    print("C7 - miss")
+                    C7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C7 - hit")
+                    C7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C8')"):
+                if row == (0,):
+                    print("C8 - miss")
+                    C8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C8 - hit")
+                    C8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C9')"):
+                if row == (0,):
+                    print("C9 - miss")
+                    C9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("C9 - hit")
+                    C9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D1')"):
+                if row == (0,):
+                    print("D1 - miss")
+                    D1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D1 - hit")
+                    D1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D2')"):
+                if row == (0,):
+                    print("D2 - miss")
+                    D2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D2 - hit")
+                    D2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D3')"):
+                if row == (0,):
+                    print("D3 - miss")
+                    D3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D3 - hit")
+                    D3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D4')"):
+                if row == (0,):
+                    print("D4 - miss")
+                    D4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D4 - hit")
+                    D4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D5')"):
+                if row == (0,):
+                    print("D5 - miss")
+                    D5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D5 - hit")
+                    D5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D6')"):
+                if row == (0,):
+                    print("D6 - miss")
+                    D6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D6 - hit")
+                    D6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D7')"):
+                if row == (0,):
+                    print("D7 - miss")
+                    D7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D7 - hit")
+                    D7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D8')"):
+                if row == (0,):
+                    print("D8 - miss")
+                    D8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D8 - hit")
+                    D8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D9')"):
+                if row == (0,):
+                    print("D9 - miss")
+                    D9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("D9 - hit")
+                    D9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E1')"):
+                if row == (0,):
+                    print("E1 - miss")
+                    E1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E1 - hit")
+                    E1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E2')"):
+                if row == (0,):
+                    print("E2 - miss")
+                    E2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E2 - hit")
+                    E2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E3')"):
+                if row == (0,):
+                    print("E3 - miss")
+                    E3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E3 - hit")
+                    E3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E4')"):
+                if row == (0,):
+                    print("E4 - miss")
+                    E4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E4 - hit")
+                    E4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E5')"):
+                if row == (0,):
+                    print("E5 - miss")
+                    E5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E5 - hit")
+                    E5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E6')"):
+                if row == (0,):
+                    print("E6 - miss")
+                    E6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E6 - hit")
+                    E6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E7')"):
+                if row == (0,):
+                    print("E7 - miss")
+                    E7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E7 - hit")
+                    E7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E8')"):
+                if row == (0,):
+                    print("E8 - miss")
+                    E8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E8 - hit")
+                    E8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E9')"):
+                if row == (0,):
+                    print("E9 - miss")
+                    E9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("E9 - hit")
+                    E9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F1')"):
+                if row == (0,):
+                    print("F1 - miss")
+                    F1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F1 - hit")
+                    F1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F2')"):
+                if row == (0,):
+                    print("F2 - miss")
+                    F2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F2 - hit")
+                    F2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F3')"):
+                if row == (0,):
+                    print("F3 - miss")
+                    F3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F3 - hit")
+                    F3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F4')"):
+                if row == (0,):
+                    print("F4 - miss")
+                    F4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F4 - hit")
+                    F4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F5')"):
+                if row == (0,):
+                    print("F5 - miss")
+                    F5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F5 - hit")
+                    F5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F6')"):
+                if row == (0,):
+                    print("F6 - miss")
+                    F6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F6 - hit")
+                    F6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F7')"):
+                if row == (0,):
+                    print("F7 - miss")
+                    F7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F7 - hit")
+                    F7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F8')"):
+                if row == (0,):
+                    print("F8 - miss")
+                    F8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F8 - hit")
+                    F8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F9')"):
+                if row == (0,):
+                    print("F9 - miss")
+                    F9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("F9 - hit")
+                    F9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G1')"):
+                if row == (0,):
+                    print("G1 - miss")
+                    G1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G1 - hit")
+                    G1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G2')"):
+                if row == (0,):
+                    print("G2 - miss")
+                    G2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G2 - hit")
+                    G2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G3')"):
+                if row == (0,):
+                    print("G3 - miss")
+                    G3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G3 - hit")
+                    G3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G4')"):
+                if row == (0,):
+                    print("G4 - miss")
+                    G4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G4 - hit")
+                    G4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G5')"):
+                if row == (0,):
+                    print("G5 - miss")
+                    G5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G5 - hit")
+                    G5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G6')"):
+                if row == (0,):
+                    print("G6 - miss")
+                    G6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G6 - hit")
+                    G6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G7')"):
+                if row == (0,):
+                    print("G7 - miss")
+                    G7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G7 - hit")
+                    G7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G8')"):
+                if row == (0,):
+                    print("G8 - miss")
+                    G8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G8 - hit")
+                    G8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G9')"):
+                if row == (0,):
+                    print("G9 - miss")
+                    G9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("G9 - hit")
+                    G9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H1')"):
+                if row == (0,):
+                    print("H1 - miss")
+                    H1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H1 - hit")
+                    H1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H2')"):
+                if row == (0,):
+                    print("H2 - miss")
+                    H2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H2 - hit")
+                    H2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H3')"):
+                if row == (0,):
+                    print("H3 - miss")
+                    H3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H3 - hit")
+                    H3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H4')"):
+                if row == (0,):
+                    print("H4 - miss")
+                    H4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H4 - hit")
+                    H4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H5')"):
+                if row == (0,):
+                    print("H5 - miss")
+                    H5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H5 - hit")
+                    H5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H6')"):
+                if row == (0,):
+                    print("H6 - miss")
+                    H6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H6 - hit")
+                    H6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H7')"):
+                if row == (0,):
+                    print("H7 - miss")
+                    H7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H7 - hit")
+                    H7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H8')"):
+                if row == (0,):
+                    print("H8 - miss")
+                    H8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H8 - hit")
+                    H8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H9')"):
+                if row == (0,):
+                    print("H9 - miss")
+                    H9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("H9 - hit")
+                    H9.configure(fg="black", bg="red", state=DISABLED)
+
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I1 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I1')"):
+                if row == (0,):
+                    print("I1 - miss")
+                    I1.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I1 - hit")
+                    I1.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I2 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I2')"):
+                if row == (0,):
+                    print("I2 - miss")
+                    I2.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I2 - hit")
+                    I2.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I3')"):
+                if row == (0,):
+                    print("I3 - miss")
+                    I3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I3 - hit")
+                    I3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I4')"):
+                if row == (0,):
+                    print("I4 - miss")
+                    I4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I4 - hit")
+                    I4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I5')"):
+                if row == (0,):
+                    print("I5 - miss")
+                    I5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I5 - hit")
+                    I5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I6')"):
+                if row == (0,):
+                    print("I6 - miss")
+                    I6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I6 - hit")
+                    I6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I7')"):
+                if row == (0,):
+                    print("I7 - miss")
+                    I7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I7 - hit")
+                    I7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I8')"):
+                if row == (0,):
+                    print("I8 - miss")
+                    I8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I8 - hit")
+                    I8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I9')"):
+                if row == (0,):
+                    print("I9 - miss")
+                    I9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("I9 - hit")
+                    I9.configure(fg="black", bg="red", state=DISABLED)
+
+
 
     connection.commit()
 
