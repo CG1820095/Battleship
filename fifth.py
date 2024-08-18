@@ -35,6 +35,7 @@ board3.place(relx=0.5, rely=0.5, anchor= CENTER,)
 def gamequit():
     cursor.execute("DROP TABLE board_details")
     cursor.execute("DROP TABLE p1_reveals")
+    cursor.execute("DROP TABLE p2_reveals")
     messagebox.showinfo("BATTLESHIPS", "killing game")
     root.quit()
 
@@ -2191,7 +2192,7 @@ I9.grid(row = 8, column = 8,)
 def ship_history():
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A1')"):
                 if row == (0,):
                     print("A1 - miss")
                     A1.configure(fg="black", bg="white", state=DISABLED)
@@ -2202,7 +2203,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A2')"):
                 if row == (0,):
                     print("A2 - miss")
                     A2.configure(fg="black", bg="white", state=DISABLED)
@@ -2213,7 +2214,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A3')"):
                 if row == (0,):
                     print("A3 - miss")
                     A3.configure(fg="black", bg="white", state=DISABLED)
@@ -2224,7 +2225,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A4')"):
                 if row == (0,):
                     print("A4 - miss")
                     A4.configure(fg="black", bg="white", state=DISABLED)
@@ -2235,7 +2236,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A5')"):
                 if row == (0,):
                     print("A5 - miss")
                     A5.configure(fg="black", bg="white", state=DISABLED)
@@ -2246,7 +2247,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A6')"):
                 if row == (0,):
                     print("A6 - miss")
                     A6.configure(fg="black", bg="white", state=DISABLED)
@@ -2257,7 +2258,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A7')"):
                 if row == (0,):
                     print("A7 - miss")
                     A7.configure(fg="black", bg="white", state=DISABLED)
@@ -2268,7 +2269,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A8')"):
                 if row == (0,):
                     print("A8 - miss")
                     A8.configure(fg="black", bg="white", state=DISABLED)
@@ -2279,7 +2280,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A9')"):
                 if row == (0,):
                     print("A9 - miss")
                     A9.configure(fg="black", bg="white", state=DISABLED)
@@ -2291,7 +2292,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B1')"):
                 if row == (0,):
                     print("B1 - miss")
                     B1.configure(fg="black", bg="white", state=DISABLED)
@@ -2302,7 +2303,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B2')"):
                 if row == (0,):
                     print("B2 - miss")
                     B2.configure(fg="black", bg="white", state=DISABLED)
@@ -2313,7 +2314,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B3')"):
                 if row == (0,):
                     print("B3 - miss")
                     B3.configure(fg="black", bg="white", state=DISABLED)
@@ -2324,7 +2325,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B4')"):
                 if row == (0,):
                     print("B4 - miss")
                     B4.configure(fg="black", bg="white", state=DISABLED)
@@ -2335,7 +2336,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B5')"):
                 if row == (0,):
                     print("B5 - miss")
                     B5.configure(fg="black", bg="white", state=DISABLED)
@@ -2346,7 +2347,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B6')"):
                 if row == (0,):
                     print("B6 - miss")
                     B6.configure(fg="black", bg="white", state=DISABLED)
@@ -2357,7 +2358,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B7')"):
                 if row == (0,):
                     print("B7 - miss")
                     B7.configure(fg="black", bg="white", state=DISABLED)
@@ -2368,7 +2369,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B8')"):
                 if row == (0,):
                     print("B8 - miss")
                     B8.configure(fg="black", bg="white", state=DISABLED)
@@ -2379,7 +2380,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B9')"):
                 if row == (0,):
                     print("B9 - miss")
                     B9.configure(fg="black", bg="white", state=DISABLED)
@@ -2391,7 +2392,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C1')"):
                 if row == (0,):
                     print("C1 - miss")
                     C1.configure(fg="black", bg="white", state=DISABLED)
@@ -2402,7 +2403,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C2')"):
                 if row == (0,):
                     print("C2 - miss")
                     C2.configure(fg="black", bg="white", state=DISABLED)
@@ -2413,7 +2414,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C3')"):
                 if row == (0,):
                     print("C3 - miss")
                     C3.configure(fg="black", bg="white", state=DISABLED)
@@ -2424,7 +2425,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C4')"):
                 if row == (0,):
                     print("C4 - miss")
                     C4.configure(fg="black", bg="white", state=DISABLED)
@@ -2435,7 +2436,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C5')"):
                 if row == (0,):
                     print("C5 - miss")
                     C5.configure(fg="black", bg="white", state=DISABLED)
@@ -2446,7 +2447,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C6')"):
                 if row == (0,):
                     print("C6 - miss")
                     C6.configure(fg="black", bg="white", state=DISABLED)
@@ -2457,7 +2458,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C7')"):
                 if row == (0,):
                     print("C7 - miss")
                     C7.configure(fg="black", bg="white", state=DISABLED)
@@ -2468,7 +2469,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C8')"):
                 if row == (0,):
                     print("C8 - miss")
                     C8.configure(fg="black", bg="white", state=DISABLED)
@@ -2479,7 +2480,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C9')"):
                 if row == (0,):
                     print("C9 - miss")
                     C9.configure(fg="black", bg="white", state=DISABLED)
@@ -2491,7 +2492,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D1')"):
                 if row == (0,):
                     print("D1 - miss")
                     D1.configure(fg="black", bg="white", state=DISABLED)
@@ -2502,7 +2503,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D2')"):
                 if row == (0,):
                     print("D2 - miss")
                     D2.configure(fg="black", bg="white", state=DISABLED)
@@ -2513,7 +2514,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D3')"):
                 if row == (0,):
                     print("D3 - miss")
                     D3.configure(fg="black", bg="white", state=DISABLED)
@@ -2524,7 +2525,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D4')"):
                 if row == (0,):
                     print("D4 - miss")
                     D4.configure(fg="black", bg="white", state=DISABLED)
@@ -2535,7 +2536,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D5')"):
                 if row == (0,):
                     print("D5 - miss")
                     D5.configure(fg="black", bg="white", state=DISABLED)
@@ -2546,7 +2547,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D6')"):
                 if row == (0,):
                     print("D6 - miss")
                     D6.configure(fg="black", bg="white", state=DISABLED)
@@ -2557,7 +2558,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D7')"):
                 if row == (0,):
                     print("D7 - miss")
                     D7.configure(fg="black", bg="white", state=DISABLED)
@@ -2568,7 +2569,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D8')"):
                 if row == (0,):
                     print("D8 - miss")
                     D8.configure(fg="black", bg="white", state=DISABLED)
@@ -2579,7 +2580,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D9')"):
                 if row == (0,):
                     print("D9 - miss")
                     D9.configure(fg="black", bg="white", state=DISABLED)
@@ -2591,7 +2592,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E1')"):
                 if row == (0,):
                     print("E1 - miss")
                     E1.configure(fg="black", bg="white", state=DISABLED)
@@ -2602,7 +2603,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E2')"):
                 if row == (0,):
                     print("E2 - miss")
                     E2.configure(fg="black", bg="white", state=DISABLED)
@@ -2613,7 +2614,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E3')"):
                 if row == (0,):
                     print("E3 - miss")
                     E3.configure(fg="black", bg="white", state=DISABLED)
@@ -2624,7 +2625,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E4')"):
                 if row == (0,):
                     print("E4 - miss")
                     E4.configure(fg="black", bg="white", state=DISABLED)
@@ -2635,7 +2636,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E5')"):
                 if row == (0,):
                     print("E5 - miss")
                     E5.configure(fg="black", bg="white", state=DISABLED)
@@ -2646,7 +2647,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E6')"):
                 if row == (0,):
                     print("E6 - miss")
                     E6.configure(fg="black", bg="white", state=DISABLED)
@@ -2657,7 +2658,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E7')"):
                 if row == (0,):
                     print("E7 - miss")
                     E7.configure(fg="black", bg="white", state=DISABLED)
@@ -2668,7 +2669,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E8')"):
                 if row == (0,):
                     print("E8 - miss")
                     E8.configure(fg="black", bg="white", state=DISABLED)
@@ -2679,7 +2680,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E9')"):
                 if row == (0,):
                     print("E9 - miss")
                     E9.configure(fg="black", bg="white", state=DISABLED)
@@ -2691,7 +2692,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F1')"):
                 if row == (0,):
                     print("F1 - miss")
                     F1.configure(fg="black", bg="white", state=DISABLED)
@@ -2702,7 +2703,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F2')"):
                 if row == (0,):
                     print("F2 - miss")
                     F2.configure(fg="black", bg="white", state=DISABLED)
@@ -2713,7 +2714,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F3')"):
                 if row == (0,):
                     print("F3 - miss")
                     F3.configure(fg="black", bg="white", state=DISABLED)
@@ -2724,7 +2725,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F4')"):
                 if row == (0,):
                     print("F4 - miss")
                     F4.configure(fg="black", bg="white", state=DISABLED)
@@ -2735,7 +2736,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F5')"):
                 if row == (0,):
                     print("F5 - miss")
                     F5.configure(fg="black", bg="white", state=DISABLED)
@@ -2746,7 +2747,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F6')"):
                 if row == (0,):
                     print("F6 - miss")
                     F6.configure(fg="black", bg="white", state=DISABLED)
@@ -2757,7 +2758,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F7')"):
                 if row == (0,):
                     print("F7 - miss")
                     F7.configure(fg="black", bg="white", state=DISABLED)
@@ -2768,7 +2769,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F8')"):
                 if row == (0,):
                     print("F8 - miss")
                     F8.configure(fg="black", bg="white", state=DISABLED)
@@ -2779,7 +2780,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F9')"):
                 if row == (0,):
                     print("F9 - miss")
                     F9.configure(fg="black", bg="white", state=DISABLED)
@@ -2791,7 +2792,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G1')"):
                 if row == (0,):
                     print("G1 - miss")
                     G1.configure(fg="black", bg="white", state=DISABLED)
@@ -2802,7 +2803,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G2')"):
                 if row == (0,):
                     print("G2 - miss")
                     G2.configure(fg="black", bg="white", state=DISABLED)
@@ -2813,7 +2814,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G3')"):
                 if row == (0,):
                     print("G3 - miss")
                     G3.configure(fg="black", bg="white", state=DISABLED)
@@ -2824,7 +2825,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G4')"):
                 if row == (0,):
                     print("G4 - miss")
                     G4.configure(fg="black", bg="white", state=DISABLED)
@@ -2835,7 +2836,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G5')"):
                 if row == (0,):
                     print("G5 - miss")
                     G5.configure(fg="black", bg="white", state=DISABLED)
@@ -2846,7 +2847,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G6')"):
                 if row == (0,):
                     print("G6 - miss")
                     G6.configure(fg="black", bg="white", state=DISABLED)
@@ -2857,7 +2858,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G7')"):
                 if row == (0,):
                     print("G7 - miss")
                     G7.configure(fg="black", bg="white", state=DISABLED)
@@ -2868,7 +2869,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G8')"):
                 if row == (0,):
                     print("G8 - miss")
                     G8.configure(fg="black", bg="white", state=DISABLED)
@@ -2879,7 +2880,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G9')"):
                 if row == (0,):
                     print("G9 - miss")
                     G9.configure(fg="black", bg="white", state=DISABLED)
@@ -2891,7 +2892,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H1')"):
                 if row == (0,):
                     print("H1 - miss")
                     H1.configure(fg="black", bg="white", state=DISABLED)
@@ -2902,7 +2903,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H2')"):
                 if row == (0,):
                     print("H2 - miss")
                     H2.configure(fg="black", bg="white", state=DISABLED)
@@ -2913,7 +2914,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H3')"):
                 if row == (0,):
                     print("H3 - miss")
                     H3.configure(fg="black", bg="white", state=DISABLED)
@@ -2924,7 +2925,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H4')"):
                 if row == (0,):
                     print("H4 - miss")
                     H4.configure(fg="black", bg="white", state=DISABLED)
@@ -2935,7 +2936,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H5')"):
                 if row == (0,):
                     print("H5 - miss")
                     H5.configure(fg="black", bg="white", state=DISABLED)
@@ -2946,7 +2947,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H6')"):
                 if row == (0,):
                     print("H6 - miss")
                     H6.configure(fg="black", bg="white", state=DISABLED)
@@ -2957,7 +2958,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H7')"):
                 if row == (0,):
                     print("H7 - miss")
                     H7.configure(fg="black", bg="white", state=DISABLED)
@@ -2968,7 +2969,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H8')"):
                 if row == (0,):
                     print("H8 - miss")
                     H8.configure(fg="black", bg="white", state=DISABLED)
@@ -2979,7 +2980,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H9')"):
                 if row == (0,):
                     print("H9 - miss")
                     H9.configure(fg="black", bg="white", state=DISABLED)
@@ -2991,7 +2992,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I1 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I1')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I1')"):
                 if row == (0,):
                     print("I1 - miss")
                     I1.configure(fg="black", bg="white", state=DISABLED)
@@ -3002,7 +3003,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I2 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I2')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I2')"):
                 if row == (0,):
                     print("I2 - miss")
                     I2.configure(fg="black", bg="white", state=DISABLED)
@@ -3013,7 +3014,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I3 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I3')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I3')"):
                 if row == (0,):
                     print("I3 - miss")
                     I3.configure(fg="black", bg="white", state=DISABLED)
@@ -3024,7 +3025,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I4 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I4')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I4')"):
                 if row == (0,):
                     print("I4 - miss")
                     I4.configure(fg="black", bg="white", state=DISABLED)
@@ -3035,7 +3036,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I5 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I5')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I5')"):
                 if row == (0,):
                     print("I5 - miss")
                     I5.configure(fg="black", bg="white", state=DISABLED)
@@ -3046,7 +3047,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I6 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I6')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I6')"):
                 if row == (0,):
                     print("I6 - miss")
                     I6.configure(fg="black", bg="white", state=DISABLED)
@@ -3057,7 +3058,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I7 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I7')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I7')"):
                 if row == (0,):
                     print("I7 - miss")
                     I7.configure(fg="black", bg="white", state=DISABLED)
@@ -3068,7 +3069,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I8 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I8')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I8')"):
                 if row == (0,):
                     print("I8 - miss")
                     I8.configure(fg="black", bg="white", state=DISABLED)
@@ -3079,7 +3080,7 @@ def ship_history():
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I9 = '1')"):
         if row == (1,):
-            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I9')"):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I9')"):
                 if row == (0,):
                     print("I9 - miss")
                     I9.configure(fg="black", bg="white", state=DISABLED)
@@ -3119,7 +3120,7 @@ def guesscheck():
 # if row == (1,):
 #     print("hit")
 
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A1')"):
             if row == (0,):
                 print("A1 - miss")
                 A1.configure(fg="black", bg="white", state=DISABLED)
@@ -3141,7 +3142,7 @@ def guesscheck():
         #     print("A1 - miss")
 
     if A2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A2')"):
             if row == (0,):
                 print("A2 - miss")
                 A2.configure(fg="black", bg="white", state=DISABLED)
@@ -3154,7 +3155,7 @@ def guesscheck():
         connection.commit()
 
     if A3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A3')"):
             if row == (0,):
                 print("A3 - miss")
                 A3.configure(fg="black", bg="white", state=DISABLED)
@@ -3167,7 +3168,7 @@ def guesscheck():
         connection.commit()
 
     if A4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A4')"):
             if row == (0,):
                 print("A4 - miss")
                 A4.configure(fg="black", bg="white", state=DISABLED)
@@ -3180,7 +3181,7 @@ def guesscheck():
         connection.commit()
 
     if A5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A5')"):
             if row == (0,):
                 print("A5 - miss")
                 A5.configure(fg="black", bg="white", state=DISABLED)
@@ -3193,7 +3194,7 @@ def guesscheck():
         connection.commit()
 
     if A6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A6')"):
             if row == (0,):
                 print("A6 - miss")
                 A6.configure(fg="black", bg="white", state=DISABLED)
@@ -3206,7 +3207,7 @@ def guesscheck():
         connection.commit()
 
     if A7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A7')"):
             if row == (0,):
                 print("A7 - miss")
                 A7.configure(fg="black", bg="white", state=DISABLED)
@@ -3219,7 +3220,7 @@ def guesscheck():
         connection.commit()
 
     if A8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A8')"):
             if row == (0,):
                 print("A8 - miss")
                 A8.configure(fg="black", bg="white", state=DISABLED)
@@ -3232,7 +3233,7 @@ def guesscheck():
         connection.commit()
 
     if A9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A9')"):
             if row == (0,):
                 print("A9 - miss")
                 A9.configure(fg="black", bg="white", state=DISABLED)
@@ -3246,7 +3247,7 @@ def guesscheck():
     
     
     if B1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B1')"):
             if row == (0,):
                 print("B1 - miss")
                 B1.configure(fg="black", bg="white", state=DISABLED)
@@ -3259,7 +3260,7 @@ def guesscheck():
         connection.commit()
 
     if B2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B2')"):
             if row == (0,):
                 print("B2 - miss")
                 B2.configure(fg="black", bg="white", state=DISABLED)
@@ -3272,7 +3273,7 @@ def guesscheck():
         connection.commit()
 
     if B3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B3')"):
             if row == (0,):
                 print("B3 - miss")
                 B3.configure(fg="black", bg="white", state=DISABLED)
@@ -3285,7 +3286,7 @@ def guesscheck():
         connection.commit()
 
     if B4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B4')"):
             if row == (0,):
                 print("B4 - miss")
                 B4.configure(fg="black", bg="white", state=DISABLED)
@@ -3298,7 +3299,7 @@ def guesscheck():
         connection.commit()
 
     if B5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B5')"):
             if row == (0,):
                 print("B5 - miss")
                 B5.configure(fg="black", bg="white", state=DISABLED)
@@ -3311,7 +3312,7 @@ def guesscheck():
         connection.commit()
 
     if B6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B6')"):
             if row == (0,):
                 print("B6 - miss")
                 B6.configure(fg="black", bg="white", state=DISABLED)
@@ -3324,7 +3325,7 @@ def guesscheck():
         connection.commit()
 
     if B7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B7')"):
             if row == (0,):
                 print("B7 - miss")
                 B7.configure(fg="black", bg="white", state=DISABLED)
@@ -3337,7 +3338,7 @@ def guesscheck():
         connection.commit()
 
     if B8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B8')"):
             if row == (0,):
                 print("B8 - miss")
                 B8.configure(fg="black", bg="white", state=DISABLED)
@@ -3350,7 +3351,7 @@ def guesscheck():
         connection.commit()
 
     if B9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'B9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'B9')"):
             if row == (0,):
                 print("B9 - miss")
                 B9.configure(fg="black", bg="white", state=DISABLED)
@@ -3364,7 +3365,7 @@ def guesscheck():
 
 
     if C1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C1')"):
             if row == (0,):
                 print("C1 - miss")
                 C1.configure(fg="black", bg="white", state=DISABLED)
@@ -3377,7 +3378,7 @@ def guesscheck():
         connection.commit()
 
     if C2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C2')"):
             if row == (0,):
                 print("C2 - miss")
                 C2.configure(fg="black", bg="white", state=DISABLED)
@@ -3390,7 +3391,7 @@ def guesscheck():
         connection.commit()
 
     if C3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C3')"):
             if row == (0,):
                 print("C3 - miss")
                 C3.configure(fg="black", bg="white", state=DISABLED)
@@ -3403,7 +3404,7 @@ def guesscheck():
         connection.commit()
 
     if C4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C4')"):
             if row == (0,):
                 print("C4 - miss")
                 C4.configure(fg="black", bg="white", state=DISABLED)
@@ -3416,7 +3417,7 @@ def guesscheck():
         connection.commit()
 
     if C5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C5')"):
             if row == (0,):
                 print("C5 - miss")
                 C5.configure(fg="black", bg="white", state=DISABLED)
@@ -3429,7 +3430,7 @@ def guesscheck():
         connection.commit()
 
     if C6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C6')"):
             if row == (0,):
                 print("C6 - miss")
                 C6.configure(fg="black", bg="white", state=DISABLED)
@@ -3442,7 +3443,7 @@ def guesscheck():
         connection.commit()
 
     if C7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C7')"):
             if row == (0,):
                 print("C7 - miss")
                 C7.configure(fg="black", bg="white", state=DISABLED)
@@ -3455,7 +3456,7 @@ def guesscheck():
         connection.commit()
 
     if C8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C8')"):
             if row == (0,):
                 print("C8 - miss")
                 C8.configure(fg="black", bg="white", state=DISABLED)
@@ -3468,7 +3469,7 @@ def guesscheck():
         connection.commit()
 
     if C9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'C9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'C9')"):
             if row == (0,):
                 print("C9 - miss")
                 C9.configure(fg="black", bg="white", state=DISABLED)
@@ -3482,7 +3483,7 @@ def guesscheck():
 
         
     if D1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D1')"):
             if row == (0,):
                 print("D1 - miss")
                 D1.configure(fg="black", bg="white", state=DISABLED)
@@ -3495,7 +3496,7 @@ def guesscheck():
         connection.commit()
 
     if D2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D2')"):
             if row == (0,):
                 print("D2 - miss")
                 D2.configure(fg="black", bg="white", state=DISABLED)
@@ -3508,7 +3509,7 @@ def guesscheck():
         connection.commit()
 
     if D3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D3')"):
             if row == (0,):
                 print("D3 - miss")
                 D3.configure(fg="black", bg="white", state=DISABLED)
@@ -3521,7 +3522,7 @@ def guesscheck():
         connection.commit()
 
     if D4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D4')"):
             if row == (0,):
                 print("D4 - miss")
                 D4.configure(fg="black", bg="white", state=DISABLED)
@@ -3534,7 +3535,7 @@ def guesscheck():
         connection.commit()
 
     if D5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D5')"):
             if row == (0,):
                 print("D5 - miss")
                 D5.configure(fg="black", bg="white", state=DISABLED)
@@ -3547,7 +3548,7 @@ def guesscheck():
         connection.commit()
 
     if D6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D6')"):
             if row == (0,):
                 print("D6 - miss")
                 D6.configure(fg="black", bg="white", state=DISABLED)
@@ -3560,7 +3561,7 @@ def guesscheck():
         connection.commit()
 
     if D7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D7')"):
             if row == (0,):
                 print("D7 - miss")
                 D7.configure(fg="black", bg="white", state=DISABLED)
@@ -3573,7 +3574,7 @@ def guesscheck():
         connection.commit()
 
     if D8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D8')"):
             if row == (0,):
                 print("D8 - miss")
                 D8.configure(fg="black", bg="white", state=DISABLED)
@@ -3586,7 +3587,7 @@ def guesscheck():
         connection.commit()
 
     if D9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'D9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'D9')"):
             if row == (0,):
                 print("D9 - miss")
                 D9.configure(fg="black", bg="white", state=DISABLED)
@@ -3600,7 +3601,7 @@ def guesscheck():
 
         
     if E1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E1')"):
             if row == (0,):
                 print("E1 - miss")
                 E1.configure(fg="black", bg="white", state=DISABLED)
@@ -3613,7 +3614,7 @@ def guesscheck():
         connection.commit()
 
     if E2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E2')"):
             if row == (0,):
                 print("E2 - miss")
                 E2.configure(fg="black", bg="white", state=DISABLED)
@@ -3626,7 +3627,7 @@ def guesscheck():
         connection.commit()
 
     if E3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E3')"):
             if row == (0,):
                 print("E3 - miss")
                 E3.configure(fg="black", bg="white", state=DISABLED)
@@ -3639,7 +3640,7 @@ def guesscheck():
         connection.commit()
 
     if E4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E4')"):
             if row == (0,):
                 print("E4 - miss")
                 E4.configure(fg="black", bg="white", state=DISABLED)
@@ -3652,7 +3653,7 @@ def guesscheck():
         connection.commit()
 
     if E5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E5')"):
             if row == (0,):
                 print("E5 - miss")
                 E5.configure(fg="black", bg="white", state=DISABLED)
@@ -3665,7 +3666,7 @@ def guesscheck():
         connection.commit()
 
     if E6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E6')"):
             if row == (0,):
                 print("E6 - miss")
                 E6.configure(fg="black", bg="white", state=DISABLED)
@@ -3678,7 +3679,7 @@ def guesscheck():
         connection.commit()
 
     if E7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E7')"):
             if row == (0,):
                 print("E7 - miss")
                 E7.configure(fg="black", bg="white", state=DISABLED)
@@ -3691,7 +3692,7 @@ def guesscheck():
         connection.commit()
 
     if E8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E8')"):
             if row == (0,):
                 print("E8 - miss")
                 E8.configure(fg="black", bg="white", state=DISABLED)
@@ -3704,7 +3705,7 @@ def guesscheck():
         connection.commit()
 
     if E9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'E9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'E9')"):
             if row == (0,):
                 print("E9 - miss")
                 E9.configure(fg="black", bg="white", state=DISABLED)
@@ -3718,7 +3719,7 @@ def guesscheck():
 
         
     if F1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F1')"):
             if row == (0,):
                 print("F1 - miss")
                 F1.configure(fg="black", bg="white", state=DISABLED)
@@ -3731,7 +3732,7 @@ def guesscheck():
         connection.commit()
 
     if F2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F2')"):
             if row == (0,):
                 print("F2 - miss")
                 F2.configure(fg="black", bg="white", state=DISABLED)
@@ -3744,7 +3745,7 @@ def guesscheck():
         connection.commit()
 
     if F3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F3')"):
             if row == (0,):
                 print("F3 - miss")
                 F3.configure(fg="black", bg="white", state=DISABLED)
@@ -3757,7 +3758,7 @@ def guesscheck():
         connection.commit()
 
     if F4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F4')"):
             if row == (0,):
                 print("F4 - miss")
                 F4.configure(fg="black", bg="white", state=DISABLED)
@@ -3770,7 +3771,7 @@ def guesscheck():
         connection.commit()
 
     if F5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F5')"):
             if row == (0,):
                 print("F5 - miss")
                 F5.configure(fg="black", bg="white", state=DISABLED)
@@ -3783,7 +3784,7 @@ def guesscheck():
         connection.commit()
 
     if F6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F6')"):
             if row == (0,):
                 print("F6 - miss")
                 F6.configure(fg="black", bg="white", state=DISABLED)
@@ -3796,7 +3797,7 @@ def guesscheck():
         connection.commit()
 
     if F7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F7')"):
             if row == (0,):
                 print("F7 - miss")
                 F7.configure(fg="black", bg="white", state=DISABLED)
@@ -3809,7 +3810,7 @@ def guesscheck():
         connection.commit()
 
     if F8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F8')"):
             if row == (0,):
                 print("F8 - miss")
                 F8.configure(fg="black", bg="white", state=DISABLED)
@@ -3822,7 +3823,7 @@ def guesscheck():
         connection.commit()
 
     if F9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'F9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'F9')"):
             if row == (0,):
                 print("F9 - miss")
                 F9.configure(fg="black", bg="white", state=DISABLED)
@@ -3836,7 +3837,7 @@ def guesscheck():
 
         
     if G1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G1')"):
             if row == (0,):
                 print("G1 - miss")
                 G1.configure(fg="black", bg="white", state=DISABLED)
@@ -3849,7 +3850,7 @@ def guesscheck():
         connection.commit()
 
     if G2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G2')"):
             if row == (0,):
                 print("G2 - miss")
                 G2.configure(fg="black", bg="white", state=DISABLED)
@@ -3862,7 +3863,7 @@ def guesscheck():
         connection.commit()
 
     if G3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G3')"):
             if row == (0,):
                 print("G3 - miss")
                 G3.configure(fg="black", bg="white", state=DISABLED)
@@ -3875,7 +3876,7 @@ def guesscheck():
         connection.commit()
 
     if G4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G4')"):
             if row == (0,):
                 print("G4 - miss")
                 G4.configure(fg="black", bg="white", state=DISABLED)
@@ -3888,7 +3889,7 @@ def guesscheck():
         connection.commit()
 
     if G5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G5')"):
             if row == (0,):
                 print("G5 - miss")
                 G5.configure(fg="black", bg="white", state=DISABLED)
@@ -3901,7 +3902,7 @@ def guesscheck():
         connection.commit()
 
     if G6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G6')"):
             if row == (0,):
                 print("G6 - miss")
                 G6.configure(fg="black", bg="white", state=DISABLED)
@@ -3914,7 +3915,7 @@ def guesscheck():
         connection.commit()
 
     if G7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G7')"):
             if row == (0,):
                 print("G7 - miss")
                 G7.configure(fg="black", bg="white", state=DISABLED)
@@ -3927,7 +3928,7 @@ def guesscheck():
         connection.commit()
 
     if G8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G8')"):
             if row == (0,):
                 print("G8 - miss")
                 G8.configure(fg="black", bg="white", state=DISABLED)
@@ -3940,7 +3941,7 @@ def guesscheck():
         connection.commit()
 
     if G9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'G9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'G9')"):
             if row == (0,):
                 print("G9 - miss")
                 G9.configure(fg="black", bg="white", state=DISABLED)
@@ -3954,7 +3955,7 @@ def guesscheck():
 
     
     if H1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H1')"):
             if row == (0,):
                 print("H1 - miss")
                 H1.configure(fg="black", bg="white", state=DISABLED)
@@ -3967,7 +3968,7 @@ def guesscheck():
         connection.commit()
 
     if H2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H2')"):
             if row == (0,):
                 print("H2 - miss")
                 H2.configure(fg="black", bg="white", state=DISABLED)
@@ -3980,7 +3981,7 @@ def guesscheck():
         connection.commit()
 
     if H3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H3')"):
             if row == (0,):
                 print("H3 - miss")
                 H3.configure(fg="black", bg="white", state=DISABLED)
@@ -3993,7 +3994,7 @@ def guesscheck():
         connection.commit()
 
     if H4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H4')"):
             if row == (0,):
                 print("H4 - miss")
                 H4.configure(fg="black", bg="white", state=DISABLED)
@@ -4006,7 +4007,7 @@ def guesscheck():
         connection.commit()
 
     if H5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H5')"):
             if row == (0,):
                 print("H5 - miss")
                 H5.configure(fg="black", bg="white", state=DISABLED)
@@ -4019,7 +4020,7 @@ def guesscheck():
         connection.commit()
 
     if H6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H6')"):
             if row == (0,):
                 print("H6 - miss")
                 H6.configure(fg="black", bg="white", state=DISABLED)
@@ -4032,7 +4033,7 @@ def guesscheck():
         connection.commit()
 
     if H7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H7')"):
             if row == (0,):
                 print("H7 - miss")
                 H7.configure(fg="black", bg="white", state=DISABLED)
@@ -4045,7 +4046,7 @@ def guesscheck():
         connection.commit()
 
     if H8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H8')"):
             if row == (0,):
                 print("H8 - miss")
                 H8.configure(fg="black", bg="white", state=DISABLED)
@@ -4058,7 +4059,7 @@ def guesscheck():
         connection.commit()
 
     if H9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'H9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'H9')"):
             if row == (0,):
                 print("H9 - miss")
                 H9.configure(fg="black", bg="white", state=DISABLED)
@@ -4072,7 +4073,7 @@ def guesscheck():
 
         
     if I1Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I1')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I1')"):
             if row == (0,):
                 print("I1 - miss")
                 I1.configure(fg="black", bg="white", state=DISABLED)
@@ -4085,7 +4086,7 @@ def guesscheck():
         connection.commit()
 
     if I2Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I2')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I2')"):
             if row == (0,):
                 print("I2 - miss")
                 I2.configure(fg="black", bg="white", state=DISABLED)
@@ -4098,7 +4099,7 @@ def guesscheck():
         connection.commit()
 
     if I3Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I3')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I3')"):
             if row == (0,):
                 print("I3 - miss")
                 I3.configure(fg="black", bg="white", state=DISABLED)
@@ -4111,7 +4112,7 @@ def guesscheck():
         connection.commit()
 
     if I4Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I4')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I4')"):
             if row == (0,):
                 print("I4 - miss")
                 I4.configure(fg="black", bg="white", state=DISABLED)
@@ -4124,7 +4125,7 @@ def guesscheck():
         connection.commit()
 
     if I5Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I5')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I5')"):
             if row == (0,):
                 print("I5 - miss")
                 I5.configure(fg="black", bg="white", state=DISABLED)
@@ -4137,7 +4138,7 @@ def guesscheck():
         connection.commit()
 
     if I6Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I6')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I6')"):
             if row == (0,):
                 print("I6 - miss")
                 I6.configure(fg="black", bg="white", state=DISABLED)
@@ -4150,7 +4151,7 @@ def guesscheck():
         connection.commit()
 
     if I7Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I7')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I7')"):
             if row == (0,):
                 print("I7 - miss")
                 I7.configure(fg="black", bg="white", state=DISABLED)
@@ -4163,7 +4164,7 @@ def guesscheck():
         connection.commit()
 
     if I8Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I8')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I8')"):
             if row == (0,):
                 print("I8 - miss")
                 I8.configure(fg="black", bg="white", state=DISABLED)
@@ -4176,7 +4177,7 @@ def guesscheck():
         connection.commit()
 
     if I9Clicked == True:
-        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'I9')"):
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'I9')"):
             if row == (0,):
                 print("I9 - miss")
                 I9.configure(fg="black", bg="white", state=DISABLED)
