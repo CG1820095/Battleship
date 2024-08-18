@@ -27,6 +27,13 @@ cursor.execute("create table if not exists board_details(player1_ships text, pla
 cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool)")
 connection.commit()
 
+#D1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+#E1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+#F1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+#G1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+#H1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+#I1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, 
+
 
 board3 = Frame(root, background="light green")
 board3.place(relx=0.5, rely=0.5, anchor= CENTER,)
@@ -48,20 +55,19 @@ def p1guessing():
 
     else:
         guesscheck()
-        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
-        
-        
-        # cursor.execute("DROP TABLE board_details")
-        # messagebox.showinfo("BATTLESHIPS", "killing game")
-        # root.quit()
+        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "temp reset test fifth")
+
+        subprocess.run(["python", ("fifth.py")])
+
+#        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
 #        subprocess.run(["python", ("sixth.py")])
 
 
 
 def p1resetguess(): 
-    # cursor.execute("UPDATE board_details SET player1_guess = NULL")
-    # cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL")
-    # connection.commit()
+    cursor.execute("UPDATE board_details SET player1_guess = NULL")
+    cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL")
+    connection.commit()
     messagebox.showinfo("PLAYER 1 BOARD", "PLAYER 2 SHIP GUESS RESET")
     print("killing board3")
     root.destroy()
@@ -2214,7 +2220,85 @@ def ship_history():
                     print("A2 - hit")
                     A2.configure(fg="black", bg="red", state=DISABLED)
 
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A3 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A3')"):
+                if row == (0,):
+                    print("A3 - miss")
+                    A3.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A3 - hit")
+                    A3.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A4 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A4')"):
+                if row == (0,):
+                    print("A4 - miss")
+                    A4.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A4 - hit")
+                    A4.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A5 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A5')"):
+                if row == (0,):
+                    print("A5 - miss")
+                    A5.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A5 - hit")
+                    A5.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A6 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A6')"):
+                if row == (0,):
+                    print("A6 - miss")
+                    A6.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A6 - hit")
+                    A6.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A7 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A7')"):
+                if row == (0,):
+                    print("A7 - miss")
+                    A7.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A7 - hit")
+                    A7.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A8 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A8')"):
+                if row == (0,):
+                    print("A8 - miss")
+                    A8.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A8 - hit")
+                    A8.configure(fg="black", bg="red", state=DISABLED)
+
+    for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A9 = '1')"):
+        if row == (1,):
+            for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A9')"):
+                if row == (0,):
+                    print("A9 - miss")
+                    A9.configure(fg="black", bg="white", state=DISABLED)
+
+                if row == (1,):
+                    print("A9 - hit")
+                    A9.configure(fg="black", bg="red", state=DISABLED)
+
     connection.commit()
+
 
 ship_history()
 
@@ -2245,13 +2329,15 @@ def guesscheck():
         for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A1')"):
             if row == (0,):
                 print("A1 - miss")
+                A1.configure(fg="black", bg="white", state=DISABLED)
 
             if row == (1,):
                 print("A1 - hit")
+                A1.configure(fg="black", bg="red", state=DISABLED)
         
         cursor.execute("INSERT INTO p1_reveals(A1) VALUES(1)")
-
         connection.commit()
+        
         #cursor.execute("SELECT IF(EXISTS(SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1')) AS 'result' FROM board_details;")
 
         # if cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'"):
@@ -2272,34 +2358,98 @@ def guesscheck():
                 A2.configure(fg="black", bg="red", state=DISABLED)
         
         cursor.execute("INSERT INTO p1_reveals(A2) VALUES(1)")
-        
         connection.commit()
-
 
     if A3Clicked == True:
-        cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A3' and player2_guess = 'A3'")
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A3')"):
+            if row == (0,):
+                print("A3 - miss")
+                A3.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A3 - hit")
+                A3.configure(fg="black", bg="red", state=DISABLED)
         
-        for row in cursor.execute("select * from board_details "): print(row)
+        cursor.execute("INSERT INTO p1_reveals(A3) VALUES(1)")
         connection.commit()
 
-        A3.configure(fg="black", bg="red", state=DISABLED)
-        print("A3 - HIT")
-    elif A3Clicked == True:
-        A3.configure(fg="black", bg="blue", state=DISABLED)
-        print("A3 - miss")
-
     if A4Clicked == True:
-        A4.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A4')"):
+            if row == (0,):
+                print("A4 - miss")
+                A4.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A4 - hit")
+                A4.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A4) VALUES(1)")
+        connection.commit()
+
     if A5Clicked == True:
-        A5.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A5')"):
+            if row == (0,):
+                print("A5 - miss")
+                A5.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A5 - hit")
+                A5.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A5) VALUES(1)")
+        connection.commit()
+
     if A6Clicked == True:
-        A6.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A6')"):
+            if row == (0,):
+                print("A6 - miss")
+                A6.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A6 - hit")
+                A6.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A6) VALUES(1)")
+        connection.commit()
+
     if A7Clicked == True:
-        A7.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A7')"):
+            if row == (0,):
+                print("A7 - miss")
+                A7.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A7 - hit")
+                A7.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A7) VALUES(1)")
+        connection.commit()
+
     if A8Clicked == True:
-        A8.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A8')"):
+            if row == (0,):
+                print("A8 - miss")
+                A8.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A8 - hit")
+                A8.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A8) VALUES(1)")
+        connection.commit()
+
     if A9Clicked == True:
-        A9.configure(fg="black", bg="white", state=DISABLED)
+        for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A9')"):
+            if row == (0,):
+                print("A9 - miss")
+                A9.configure(fg="black", bg="white", state=DISABLED)
+
+            if row == (1,):
+                print("A9 - hit")
+                A9.configure(fg="black", bg="red", state=DISABLED)
+        
+        cursor.execute("INSERT INTO p1_reveals(A9) VALUES(1)")
+        connection.commit()
     
     
     if B1Clicked == True:
