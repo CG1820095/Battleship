@@ -73,9 +73,13 @@ p1_res_place = Button(root, text="reset guess", padx = 10, pady = 5, fg="orange"
 p1_res_place.grid()
 
 
+def p1winning():
+    messagebox.showinfo("PLAYER 1 WINS", "player 1 hit all of player 2's ships")
+    gamequit()
 
 #Define global guess count.
 p1guesscount = 0
+p1wincon = 0
 
 playerlabel = Label(text="PLAYER 1:", bg="light green")
 playerlabel.grid(row=7, column=0)
@@ -86,6 +90,7 @@ countlabel.grid(row = 9, column = 0, columnspan = 2,)
 
 limitlabel = Label(text="(you only get one guess)", bg="light green")
 limitlabel.grid(row=10, column=0)
+
 
 # Before first click
 A1Clicked  = False 
@@ -2190,6 +2195,7 @@ I9.grid(row = 8, column = 8,)
 
 
 def ship_history():
+    global p1wincon
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A1 = '1')"):
         if row == (1,):
             for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player2_ships = 'A1')"):
@@ -2200,6 +2206,11 @@ def ship_history():
                 if row == (1,):
                     print("A1 - hit")
                     A1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A2 = '1')"):
         if row == (1,):
@@ -2211,6 +2222,11 @@ def ship_history():
                 if row == (1,):
                     print("A2 - hit")
                     A2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A3 = '1')"):
         if row == (1,):
@@ -2222,6 +2238,11 @@ def ship_history():
                 if row == (1,):
                     print("A3 - hit")
                     A3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A4 = '1')"):
         if row == (1,):
@@ -2233,6 +2254,11 @@ def ship_history():
                 if row == (1,):
                     print("A4 - hit")
                     A4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A5 = '1')"):
         if row == (1,):
@@ -2244,6 +2270,11 @@ def ship_history():
                 if row == (1,):
                     print("A5 - hit")
                     A5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A6 = '1')"):
         if row == (1,):
@@ -2255,6 +2286,11 @@ def ship_history():
                 if row == (1,):
                     print("A6 - hit")
                     A6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A7 = '1')"):
         if row == (1,):
@@ -2266,6 +2302,11 @@ def ship_history():
                 if row == (1,):
                     print("A7 - hit")
                     A7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A8 = '1')"):
         if row == (1,):
@@ -2277,6 +2318,11 @@ def ship_history():
                 if row == (1,):
                     print("A8 - hit")
                     A8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A9 = '1')"):
         if row == (1,):
@@ -2288,6 +2334,11 @@ def ship_history():
                 if row == (1,):
                     print("A9 - hit")
                     A9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B1 = '1')"):
@@ -2300,6 +2351,11 @@ def ship_history():
                 if row == (1,):
                     print("B1 - hit")
                     B1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B2 = '1')"):
         if row == (1,):
@@ -2311,6 +2367,11 @@ def ship_history():
                 if row == (1,):
                     print("B2 - hit")
                     B2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B3 = '1')"):
         if row == (1,):
@@ -2322,6 +2383,11 @@ def ship_history():
                 if row == (1,):
                     print("B3 - hit")
                     B3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B4 = '1')"):
         if row == (1,):
@@ -2333,6 +2399,11 @@ def ship_history():
                 if row == (1,):
                     print("B4 - hit")
                     B4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B5 = '1')"):
         if row == (1,):
@@ -2344,6 +2415,11 @@ def ship_history():
                 if row == (1,):
                     print("B5 - hit")
                     B5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B6 = '1')"):
         if row == (1,):
@@ -2355,6 +2431,11 @@ def ship_history():
                 if row == (1,):
                     print("B6 - hit")
                     B6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B7 = '1')"):
         if row == (1,):
@@ -2366,6 +2447,11 @@ def ship_history():
                 if row == (1,):
                     print("B7 - hit")
                     B7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B8 = '1')"):
         if row == (1,):
@@ -2377,6 +2463,11 @@ def ship_history():
                 if row == (1,):
                     print("B8 - hit")
                     B8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE B9 = '1')"):
         if row == (1,):
@@ -2388,6 +2479,11 @@ def ship_history():
                 if row == (1,):
                     print("B9 - hit")
                     B9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C1 = '1')"):
@@ -2400,6 +2496,11 @@ def ship_history():
                 if row == (1,):
                     print("C1 - hit")
                     C1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C2 = '1')"):
         if row == (1,):
@@ -2411,6 +2512,11 @@ def ship_history():
                 if row == (1,):
                     print("C2 - hit")
                     C2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C3 = '1')"):
         if row == (1,):
@@ -2422,6 +2528,11 @@ def ship_history():
                 if row == (1,):
                     print("C3 - hit")
                     C3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C4 = '1')"):
         if row == (1,):
@@ -2433,6 +2544,11 @@ def ship_history():
                 if row == (1,):
                     print("C4 - hit")
                     C4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C5 = '1')"):
         if row == (1,):
@@ -2444,6 +2560,11 @@ def ship_history():
                 if row == (1,):
                     print("C5 - hit")
                     C5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C6 = '1')"):
         if row == (1,):
@@ -2455,6 +2576,11 @@ def ship_history():
                 if row == (1,):
                     print("C6 - hit")
                     C6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C7 = '1')"):
         if row == (1,):
@@ -2466,6 +2592,11 @@ def ship_history():
                 if row == (1,):
                     print("C7 - hit")
                     C7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C8 = '1')"):
         if row == (1,):
@@ -2477,6 +2608,11 @@ def ship_history():
                 if row == (1,):
                     print("C8 - hit")
                     C8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE C9 = '1')"):
         if row == (1,):
@@ -2488,6 +2624,11 @@ def ship_history():
                 if row == (1,):
                     print("C9 - hit")
                     C9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D1 = '1')"):
@@ -2500,6 +2641,11 @@ def ship_history():
                 if row == (1,):
                     print("D1 - hit")
                     D1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D2 = '1')"):
         if row == (1,):
@@ -2511,6 +2657,11 @@ def ship_history():
                 if row == (1,):
                     print("D2 - hit")
                     D2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D3 = '1')"):
         if row == (1,):
@@ -2522,6 +2673,11 @@ def ship_history():
                 if row == (1,):
                     print("D3 - hit")
                     D3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D4 = '1')"):
         if row == (1,):
@@ -2533,6 +2689,11 @@ def ship_history():
                 if row == (1,):
                     print("D4 - hit")
                     D4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D5 = '1')"):
         if row == (1,):
@@ -2544,6 +2705,11 @@ def ship_history():
                 if row == (1,):
                     print("D5 - hit")
                     D5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D6 = '1')"):
         if row == (1,):
@@ -2555,6 +2721,11 @@ def ship_history():
                 if row == (1,):
                     print("D6 - hit")
                     D6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D7 = '1')"):
         if row == (1,):
@@ -2566,6 +2737,11 @@ def ship_history():
                 if row == (1,):
                     print("D7 - hit")
                     D7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D8 = '1')"):
         if row == (1,):
@@ -2577,6 +2753,11 @@ def ship_history():
                 if row == (1,):
                     print("D8 - hit")
                     D8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE D9 = '1')"):
         if row == (1,):
@@ -2588,6 +2769,11 @@ def ship_history():
                 if row == (1,):
                     print("D9 - hit")
                     D9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E1 = '1')"):
@@ -2600,6 +2786,11 @@ def ship_history():
                 if row == (1,):
                     print("E1 - hit")
                     E1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E2 = '1')"):
         if row == (1,):
@@ -2611,6 +2802,11 @@ def ship_history():
                 if row == (1,):
                     print("E2 - hit")
                     E2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E3 = '1')"):
         if row == (1,):
@@ -2622,6 +2818,11 @@ def ship_history():
                 if row == (1,):
                     print("E3 - hit")
                     E3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E4 = '1')"):
         if row == (1,):
@@ -2633,6 +2834,11 @@ def ship_history():
                 if row == (1,):
                     print("E4 - hit")
                     E4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E5 = '1')"):
         if row == (1,):
@@ -2644,6 +2850,11 @@ def ship_history():
                 if row == (1,):
                     print("E5 - hit")
                     E5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E6 = '1')"):
         if row == (1,):
@@ -2655,6 +2866,11 @@ def ship_history():
                 if row == (1,):
                     print("E6 - hit")
                     E6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E7 = '1')"):
         if row == (1,):
@@ -2666,6 +2882,11 @@ def ship_history():
                 if row == (1,):
                     print("E7 - hit")
                     E7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E8 = '1')"):
         if row == (1,):
@@ -2677,6 +2898,11 @@ def ship_history():
                 if row == (1,):
                     print("E8 - hit")
                     E8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE E9 = '1')"):
         if row == (1,):
@@ -2688,6 +2914,11 @@ def ship_history():
                 if row == (1,):
                     print("E9 - hit")
                     E9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F1 = '1')"):
@@ -2700,6 +2931,11 @@ def ship_history():
                 if row == (1,):
                     print("F1 - hit")
                     F1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F2 = '1')"):
         if row == (1,):
@@ -2711,6 +2947,11 @@ def ship_history():
                 if row == (1,):
                     print("F2 - hit")
                     F2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F3 = '1')"):
         if row == (1,):
@@ -2722,6 +2963,11 @@ def ship_history():
                 if row == (1,):
                     print("F3 - hit")
                     F3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F4 = '1')"):
         if row == (1,):
@@ -2733,6 +2979,11 @@ def ship_history():
                 if row == (1,):
                     print("F4 - hit")
                     F4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F5 = '1')"):
         if row == (1,):
@@ -2744,6 +2995,11 @@ def ship_history():
                 if row == (1,):
                     print("F5 - hit")
                     F5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F6 = '1')"):
         if row == (1,):
@@ -2755,6 +3011,11 @@ def ship_history():
                 if row == (1,):
                     print("F6 - hit")
                     F6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F7 = '1')"):
         if row == (1,):
@@ -2766,6 +3027,11 @@ def ship_history():
                 if row == (1,):
                     print("F7 - hit")
                     F7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F8 = '1')"):
         if row == (1,):
@@ -2777,6 +3043,11 @@ def ship_history():
                 if row == (1,):
                     print("F8 - hit")
                     F8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE F9 = '1')"):
         if row == (1,):
@@ -2788,6 +3059,11 @@ def ship_history():
                 if row == (1,):
                     print("F9 - hit")
                     F9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G1 = '1')"):
@@ -2800,6 +3076,11 @@ def ship_history():
                 if row == (1,):
                     print("G1 - hit")
                     G1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G2 = '1')"):
         if row == (1,):
@@ -2811,6 +3092,11 @@ def ship_history():
                 if row == (1,):
                     print("G2 - hit")
                     G2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G3 = '1')"):
         if row == (1,):
@@ -2822,6 +3108,11 @@ def ship_history():
                 if row == (1,):
                     print("G3 - hit")
                     G3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G4 = '1')"):
         if row == (1,):
@@ -2833,6 +3124,11 @@ def ship_history():
                 if row == (1,):
                     print("G4 - hit")
                     G4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G5 = '1')"):
         if row == (1,):
@@ -2844,6 +3140,11 @@ def ship_history():
                 if row == (1,):
                     print("G5 - hit")
                     G5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G6 = '1')"):
         if row == (1,):
@@ -2855,6 +3156,11 @@ def ship_history():
                 if row == (1,):
                     print("G6 - hit")
                     G6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G7 = '1')"):
         if row == (1,):
@@ -2866,6 +3172,11 @@ def ship_history():
                 if row == (1,):
                     print("G7 - hit")
                     G7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G8 = '1')"):
         if row == (1,):
@@ -2877,6 +3188,11 @@ def ship_history():
                 if row == (1,):
                     print("G8 - hit")
                     G8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE G9 = '1')"):
         if row == (1,):
@@ -2888,6 +3204,11 @@ def ship_history():
                 if row == (1,):
                     print("G9 - hit")
                     G9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H1 = '1')"):
@@ -2900,6 +3221,11 @@ def ship_history():
                 if row == (1,):
                     print("H1 - hit")
                     H1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H2 = '1')"):
         if row == (1,):
@@ -2911,6 +3237,11 @@ def ship_history():
                 if row == (1,):
                     print("H2 - hit")
                     H2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H3 = '1')"):
         if row == (1,):
@@ -2922,6 +3253,11 @@ def ship_history():
                 if row == (1,):
                     print("H3 - hit")
                     H3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H4 = '1')"):
         if row == (1,):
@@ -2933,6 +3269,11 @@ def ship_history():
                 if row == (1,):
                     print("H4 - hit")
                     H4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H5 = '1')"):
         if row == (1,):
@@ -2944,6 +3285,11 @@ def ship_history():
                 if row == (1,):
                     print("H5 - hit")
                     H5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H6 = '1')"):
         if row == (1,):
@@ -2955,6 +3301,11 @@ def ship_history():
                 if row == (1,):
                     print("H6 - hit")
                     H6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H7 = '1')"):
         if row == (1,):
@@ -2966,6 +3317,11 @@ def ship_history():
                 if row == (1,):
                     print("H7 - hit")
                     H7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H8 = '1')"):
         if row == (1,):
@@ -2977,6 +3333,11 @@ def ship_history():
                 if row == (1,):
                     print("H8 - hit")
                     H8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE H9 = '1')"):
         if row == (1,):
@@ -2988,6 +3349,11 @@ def ship_history():
                 if row == (1,):
                     print("H9 - hit")
                     H9.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I1 = '1')"):
@@ -3000,6 +3366,11 @@ def ship_history():
                 if row == (1,):
                     print("I1 - hit")
                     I1.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I2 = '1')"):
         if row == (1,):
@@ -3011,6 +3382,11 @@ def ship_history():
                 if row == (1,):
                     print("I2 - hit")
                     I2.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I3 = '1')"):
         if row == (1,):
@@ -3022,6 +3398,11 @@ def ship_history():
                 if row == (1,):
                     print("I3 - hit")
                     I3.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I4 = '1')"):
         if row == (1,):
@@ -3033,6 +3414,11 @@ def ship_history():
                 if row == (1,):
                     print("I4 - hit")
                     I4.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I5 = '1')"):
         if row == (1,):
@@ -3044,6 +3430,11 @@ def ship_history():
                 if row == (1,):
                     print("I5 - hit")
                     I5.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I6 = '1')"):
         if row == (1,):
@@ -3055,6 +3446,11 @@ def ship_history():
                 if row == (1,):
                     print("I6 - hit")
                     I6.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I7 = '1')"):
         if row == (1,):
@@ -3066,6 +3462,11 @@ def ship_history():
                 if row == (1,):
                     print("I7 - hit")
                     I7.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I8 = '1')"):
         if row == (1,):
@@ -3077,6 +3478,11 @@ def ship_history():
                 if row == (1,):
                     print("I8 - hit")
                     I8.configure(fg="black", bg="red", state=DISABLED)
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE I9 = '1')"):
         if row == (1,):
@@ -3088,7 +3494,11 @@ def ship_history():
                 if row == (1,):
                     print("I9 - hit")
                     I9.configure(fg="black", bg="red", state=DISABLED)
-
+                    
+                    p1wincon += 1  # Update value of global variable.
+                    print(p1wincon , "/17 player 2 ship grids found")
+                    if p1wincon >= 17:
+                        p1winning()
 
 
     connection.commit()
@@ -4189,5 +4599,9 @@ def guesscheck():
         cursor.execute("INSERT INTO p1_reveals(I9) VALUES(1)")
         connection.commit()
 
+
+hitlabel = Button(root, text = (p1wincon, " player 2 ship grids hit"), bg="light green", activebackground="light yellow")
+hitlabel.grid(row = 12, column = 0, columnspan = 2,)
+print(p1wincon , "/17 player 2 ship grids found")
 
 root.mainloop()
