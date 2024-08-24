@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("Login with an existing Account")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/temp.png")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 
 
 root.configure(background="light blue")
@@ -17,7 +17,7 @@ root.configure(background="light blue")
 #prevents NameError: name 'message_label'
 message_label = None
 
-connection = sqlite3.connect('battleships.db', timeout=120.0)
+connection = sqlite3.connect('battleships.db')
 cursor = connection.cursor()
 
 def login_account():
@@ -46,11 +46,10 @@ def login_account():
     else: #if the password meets all the requirements then check if its saved to the database
         cursor.execute("SELECT * FROM account_details WHERE username = '{}' and userpassword = '{}'".format(username, password))
         connection.commit()
-        connection.close()
         messagebox.showinfo("BATTLESHIPS", "Login success")
         root.destroy()
         subprocess.run(["python", ("third.py")])
-        
+    
 
 
 Label_login = ttk.Label(root, text="Login", font=("Arial", 20, "bold"), background="Light Blue")

@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 1 SHIP PLACEMENTS")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\images.jpg")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.geometry("900x600")
 root.configure(background="light green")
 
@@ -17,9 +17,8 @@ root.configure(background="light green")
 connection = sqlite3.connect("battleships.db")
 cursor = connection.cursor()
 
-
 cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
-
+connection.commit()
 
 board1 = Frame(root, background="light green")
 board1.place(relx=0.5, rely=0.5, anchor= CENTER,)
@@ -48,6 +47,7 @@ def p1guessing():
 
 def p1resetplace(): 
     cursor.execute("UPDATE board_details SET player1_ships = NULL")
+    connection.commit()
     cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL")
     connection.commit()
     messagebox.showinfo("PLAYER 1 BOARD", "SHIP SELECTION RESET")

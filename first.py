@@ -1,34 +1,25 @@
 from tkinter import *
-from PIL import ImageTk, Image
 import subprocess
-import sqlite3
+from PIL import ImageTk, Image
 
 root = Tk()
 root.title("Battleships")
+
+
+#icon for the game
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.configure(background="light blue")
 
-
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images\icon.png")))
-
-
-welcome = Label(root, text="Welcome to", pady=0, padx=40, font=("Comic Sans MS", 10), background="grey")
+welcome = Label(root, text="Welcome to", pady=0, padx=40, font=("Comic Sans MS", 10), bg="grey")
 welcome.pack()
-myLabel = Label(root, text="BATTLESHIPS", pady=0, padx=10, font=("Arial", 35, 'bold'), background="grey")
+myLabel = Label(root, text="BATTLESHIPS", pady=0, padx=10, font=("Arial", 35, 'bold'), bg="grey")
 myLabel.pack()
-
-connection = sqlite3.connect("battleships.db")
-cursor =connection.cursor()
-
-
-#cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
-
-connection.commit()
-connection.close()
 
 c = Canvas(root, width=600, height=275, background="grey")
 c.pack()
 
 
+#destroys the page then runs the next one with subprocess
 def login():
     print("killing landing first")
     root.destroy()
@@ -37,18 +28,18 @@ def login():
 login_here = Button(root, text="LOGIN", padx = 10, pady = 5, fg="black", bg="light blue", command = login)
 login_here.pack()
 
-
+#the user game go from the landing page to the signup page
 def signup():
     print("killing landing first")
     root.destroy()
     subprocess.run(["python", ("2nd_signup.py")])
 
-signup_here = Button(root, text="SIGN UP", padx = 10, pady = 5, fg="black", bg="light blue", command = signup)
+signup_here = Button(root, text="SIGN UP", padx = 10, pady = 5, bg="light blue", command = signup)
 signup_here.pack()
 
 
 my_img = ImageTk.PhotoImage(Image.open ("images/battleship.jpg"))
-c.create_image(300, 120,image=my_img, )
+c.create_image(300, 120,image = my_img, )
 
 button_exit = Button(root, text="Exit Program", bg="yellow", command=root.quit)
 button_exit.pack()

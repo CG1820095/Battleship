@@ -9,7 +9,7 @@ from tkinter import messagebox
 root = Tk()
 root.title("Create Account")
 
-#root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/test.png")))
+root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 
 
 root.configure(background="Light blue")
