@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import ImageTk, Image
 import subprocess
 import sqlite3
@@ -2174,8 +2173,6 @@ I6.grid(row = 5, column = 8,)
 I7.grid(row = 6, column = 8,)
 I8.grid(row = 7, column = 8,)
 I9.grid(row = 8, column = 8,)
-
-
 
 
 root.mainloop()

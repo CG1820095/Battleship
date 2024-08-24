@@ -1,22 +1,20 @@
 from tkinter import *
-from PIL import Image, ImageTk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import subprocess
 import sqlite3
-import re 
-from tkinter import messagebox 
+import re
+from PIL import Image, ImageTk
 
 root = Tk()
 root.title("Create Account")
 
 root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
-
-
 root.configure(background="Light blue")
 
 #prevents NameError: name 'message_label'
 message_label = None
 
+#connecting to the database 
 connection = sqlite3.connect('battleships.db')
 cursor = connection.cursor()
 
@@ -53,7 +51,7 @@ def create_account():
                                     background="Light blue", font=('Arial', 12, 'bold'))
             message_label.grid(row=14, column=0, padx=10, pady=5, columnspan=2)
     
-    else: #if the password meets all the requirements then it can be saved to the database
+    else: #if the password meets all the requirements then it can be saved to the database, and start the game
         cursor.execute("INSERT INTO account_details(userpassword,username) VALUES('{}', '{}')".format(password, username))
         connection.commit()
         messagebox.showinfo("BATTLESHIPS", "Signup complete")
@@ -61,7 +59,7 @@ def create_account():
         subprocess.run(["python", ("third.py")])
 
         
-
+#lables and inputs for the users
 Label_signup = ttk.Label(root, text="Sign up", font=("Arial", 20, "bold"), background="Light Blue")
 Label_signup.grid(row=1, column=0, pady=30, padx=100)
 
@@ -87,6 +85,7 @@ Entry_confirmpassword.grid(row=9, column=0, padx=100)
 Button = ttk.Button(root, text="Create Account", command=create_account)  
 Button.grid(row=10, column=0, pady=(25,0), padx=100)
 
+#return to previous page, landing page
 def landing():
     root.destroy()
     messagebox.showinfo("BATTLESHIPS", "returning to landing page")

@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import ImageTk, Image
 import subprocess
 import sqlite3
@@ -9,27 +8,32 @@ from tkinter import messagebox
 root = Tk()
 root.title("PLAYER 1 SHIP PLACEMENTS")
 
+#size, colour, and icon settings
 root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.geometry("900x600")
 root.configure(background="light green")
 
-
-connection = sqlite3.connect("battleships.db")
-cursor = connection.cursor()
-
-cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
-connection.commit()
-
+#using frame to layout the buttons in a board
 board1 = Frame(root, background="light green")
 board1.place(relx=0.5, rely=0.5, anchor= CENTER,)
 
+#connect to database and create a new table to run the game
+connection = sqlite3.connect("battleships.db")
+cursor = connection.cursor()
 
+cursor.execute("""create table if not exists board_details
+                (player1_ships text, player2_ships text, player1_guess text, player2_guess text)""")
+connection.commit()
+
+#to end the game without errors for the next time, the table is dropped
 def gamequit():
     cursor.execute("DROP TABLE board_details")
     messagebox.showinfo("BATTLESHIPS", "killing game")
     root.quit()
 
-button_exit = Button(board1, text="Exit Program", bg="yellow", activebackground="red", activeforeground="white", command = gamequit )
+button_exit=Button(board1, text="Exit Program",
+                    bg="yellow", activebackground="red", activeforeground="white",
+                    command = gamequit )
 button_exit.grid(row=9, column=9)
 
 
@@ -45,7 +49,7 @@ def p1guessing():
 
 
 
-def p1resetplace(): 
+def p1resetplace():
     cursor.execute("UPDATE board_details SET player1_ships = NULL")
     connection.commit()
     cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL")
@@ -2182,8 +2186,6 @@ I6.grid(row = 5, column = 8,)
 I7.grid(row = 6, column = 8,)
 I8.grid(row = 7, column = 8,)
 I9.grid(row = 8, column = 8,)
-
-
 
 
 root.mainloop()
