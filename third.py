@@ -9,7 +9,7 @@ root = Tk()
 root.title("PLAYER 1 SHIP PLACEMENTS")
 
 #size, colour, and icon settings
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
+root.tk.call('wm', 'iconphoto', root, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.geometry("900x600")
 root.configure(background="light green")
 

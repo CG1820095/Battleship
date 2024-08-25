@@ -7,7 +7,7 @@ root.title("Battleships")
 
 
 #icon for the game
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
+root.tk.call('wm', 'iconphoto', root, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.configure(background="light blue")
 
 welcome = Label(root, text="Welcome to", pady=0, padx=40, font=("Comic Sans MS", 10), bg="grey")
@@ -21,18 +21,21 @@ c.pack()
 
 #destroys the page then runs the next one with subprocess
 def login():
+    """Function to go to login page"""
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("2nd_login.py")])
+    subprocess.run(["python", ("2nd_login.py")], check=False)
 
-login_here = Button(root, text="LOGIN", padx = 10, pady = 5, fg="black", bg="light blue", command = login)
+login_here = Button(root, text="LOGIN", padx = 10, pady = 5,
+                    fg="black", bg="light blue", command = login)
 login_here.pack()
 
 #the user game go from the landing page to the signup page
 def signup():
+    """Function to go to signup page"""
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("2nd_signup.py")])
+    subprocess.run(["python", ("2nd_signup.py")], check=False)
 
 signup_here = Button(root, text="SIGN UP", padx = 10, pady = 5, bg="light blue", command = signup)
 signup_here.pack()
