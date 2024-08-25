@@ -35,7 +35,7 @@ def gamequit():
 #the quit button
 button_exit=Button(board1, text="Exit Program",
                     bg="yellow", activebackground="red", activeforeground="white",
-                    command = gamequit )
+                    command = gamequit)
 button_exit.grid(row=9, column=9)
 
 #a function that checks if the ship count is less than 17 or runs next game state
