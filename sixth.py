@@ -1,14 +1,15 @@
-from tkinter import *
+"""tkinter module provides the majority of functions for the gui"""
+from tkinter import Tk, Frame, CENTER, Button, Label, DISABLED
 from PIL import ImageTk, Image
 import subprocess
 import sqlite3
-from tkinter import messagebox 
+from tkinter import messagebox
 
 
 root = Tk()
 root.title("PLAYER 2 GUESS PLAYER 1 SHIP PLACEMENTS")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
+root.tk.call('wm', 'iconphoto', root, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.geometry("900x600")
 root.configure(background="pink")
 
@@ -17,7 +18,9 @@ connection = sqlite3.connect("battleships.db")
 cursor =connection.cursor()
 
 
-cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player2_guess text, player2_guess text)")
+cursor.execute("""create table if not exists board_details
+                (player1_ships text, player2_ships text, player1_guess text, player2_guess text)""")
+connection.commit()
 
 cursor.execute("""
     create table if not exists 

@@ -1,4 +1,5 @@
-from tkinter import *
+"""import tkinter for the gui functions"""
+from tkinter import Tk, Label, Canvas, Button
 import subprocess
 from PIL import ImageTk, Image
 
@@ -24,7 +25,7 @@ def login():
     """Function to go to login page"""
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("2nd_login.py")], check=False)
+    subprocess.run(["python", ("login.py")], check=False)
 
 login_here = Button(root, text="LOGIN", padx = 10, pady = 5,
                     fg="black", bg="light blue", command = login)
@@ -35,7 +36,7 @@ def signup():
     """Function to go to signup page"""
     print("killing landing first")
     root.destroy()
-    subprocess.run(["python", ("2nd_signup.py")], check=False)
+    subprocess.run(["python", ("signup.py")], check=False)
 
 signup_here = Button(root, text="SIGN UP", padx = 10, pady = 5, bg="light blue", command = signup)
 signup_here.pack()

@@ -1,14 +1,15 @@
-from tkinter import *
+"""tkinter module provides the majority of functions for the gui"""
+from tkinter import Tk, Frame, CENTER, Button, Label, DISABLED
 from PIL import ImageTk, Image
 import subprocess
 import sqlite3
-from tkinter import messagebox 
+from tkinter import messagebox
 
 
 root = Tk()
 root.title("PLAYER 1 GUESS PLAYER 2 SHIP PLACEMENTS")
 
-root.tk.call('wm', 'iconphoto', root._w, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
+root.tk.call('wm', 'iconphoto', root, ImageTk.PhotoImage(Image.open("images/battleship.jpg")))
 root.geometry("900x600")
 root.configure(background="light green")
 
@@ -17,7 +18,9 @@ connection = sqlite3.connect("battleships.db")
 cursor =connection.cursor()
 
 
-cursor.execute("create table if not exists board_details(player1_ships text, player2_ships text, player1_guess text, player2_guess text)")
+cursor.execute("""create table if not exists board_details
+                (player1_ships text, player2_ships text, player1_guess text, player2_guess text)""")
+connection.commit()
 
 #board_list = {"A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool"}
 #cursor.execute("create table if not exists p1_reveals('{}')".format(board_list))
@@ -122,7 +125,9 @@ def gamequit():
     messagebox.showinfo("BATTLESHIPS", "killing game")
     root.quit()
 
-button_exit = Button(board3, text="Exit Program", bg="yellow", activebackground="red", activeforeground="white", command = gamequit )
+button_exit=Button(board3, text="Exit Program",
+                    bg="yellow", activebackground="red", activeforeground="white",
+                    command = gamequit)
 button_exit.grid(row=9, column=9)
 
 
@@ -133,26 +138,33 @@ def p1guessing():
     else:
         guesscheck()
         cursor.execute("UPDATE board_details SET player1_guess = NULL")
-        cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL")
-        connection.commit()        
-        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION", "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
+        cursor.execute("""DELETE FROM board_details WHERE
+                       player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL""")
+        connection.commit()
+        messagebox.showinfo("PLAYER 1 GUESSED A SHIP POSITION",
+                            "NOW PLAYER 2 GETS TO GUESS ONE OF YOUR SHIP LOCATIONS")
         root.destroy()
-        subprocess.run(["python", ("sixth.py")])
+        subprocess.run(["python", ("sixth.py")], check=False)
 
 
-def p1resetguess(): 
+def p1resetguess():
     cursor.execute("UPDATE board_details SET player1_guess = NULL")
-    cursor.execute("DELETE FROM board_details WHERE player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL")
+    cursor.execute("""DELETE FROM board_details WHERE
+                   player1_ships IS NULL AND player2_ships IS NULL AND player1_guess IS NULL""")
     connection.commit()
     messagebox.showinfo("PLAYER 1 BOARD", "PLAYER 2 SHIP GUESS RESET")
     root.destroy()
-    subprocess.run(["python", ("fifth.py")])
+    subprocess.run(["python", ("fifth.py")], check=False)
 
 
-p1_con_place = Button(root, text="CONFIRM GUESS", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black", command = p1guessing)
+p1_con_place = Button(root, text="CONFIRM GUESS", padx = 10, pady = 5,
+                    fg="orange", bg="black", activebackground="orange", activeforeground="black",
+                    command = p1guessing)
 p1_con_place.grid()
 
-p1_res_place = Button(root, text="reset guess", padx = 10, pady = 5, fg="orange", bg="black", activebackground="orange", activeforeground="black",command = p1resetguess)
+p1_res_place = Button(root, text="reset guess", padx = 10, pady = 5,
+                    fg="orange", bg="black", activebackground="orange", activeforeground="black",
+                    command = p1resetguess)
 p1_res_place.grid()
 
 
@@ -168,7 +180,8 @@ playerlabel = Label(text="PLAYER 1:", bg="light green")
 playerlabel.grid(row=7, column=0)
 
 #count display
-countlabel = Button(root, text = "guess an enemy ship location", bg="light green", activebackground="light yellow")
+countlabel = Button(root, text = "guess an enemy ship location",
+                    bg="light green", activebackground="light yellow")
 countlabel.grid(row = 9, column = 0, columnspan = 2,)
 
 limitlabel = Label(text="(you only get one guess)", bg="light green")
@@ -176,7 +189,7 @@ limitlabel.grid(row=10, column=0)
 
 
 # Before first click
-A1Clicked  = False 
+A1Clicked  = False
 A2Clicked  = False
 A3Clicked  = False
 A4Clicked  = False
@@ -186,7 +199,7 @@ A7Clicked  = False
 A8Clicked  = False
 A9Clicked  = False
 
-B1Clicked  = False 
+B1Clicked  = False
 B2Clicked  = False
 B3Clicked  = False
 B4Clicked  = False
@@ -196,7 +209,7 @@ B7Clicked  = False
 B8Clicked  = False
 B9Clicked  = False
 
-C1Clicked  = False 
+C1Clicked  = False
 C2Clicked  = False
 C3Clicked  = False
 C4Clicked  = False
@@ -206,7 +219,7 @@ C7Clicked  = False
 C8Clicked  = False
 C9Clicked  = False
 
-D1Clicked  = False 
+D1Clicked  = False
 D2Clicked  = False
 D3Clicked  = False
 D4Clicked  = False
@@ -216,7 +229,7 @@ D7Clicked  = False
 D8Clicked  = False
 D9Clicked  = False
 
-E1Clicked  = False 
+E1Clicked  = False
 E2Clicked  = False
 E3Clicked  = False
 E4Clicked  = False
@@ -226,7 +239,7 @@ E7Clicked  = False
 E8Clicked  = False
 E9Clicked  = False
 
-F1Clicked  = False 
+F1Clicked  = False
 F2Clicked  = False
 F3Clicked  = False
 F4Clicked  = False
@@ -236,7 +249,7 @@ F7Clicked  = False
 F8Clicked  = False
 F9Clicked  = False
 
-G1Clicked  = False 
+G1Clicked  = False
 G2Clicked  = False
 G3Clicked  = False
 G4Clicked  = False
@@ -246,7 +259,7 @@ G7Clicked  = False
 G8Clicked  = False
 G9Clicked  = False
 
-H1Clicked  = False 
+H1Clicked  = False
 H2Clicked  = False
 H3Clicked  = False
 H4Clicked  = False
@@ -256,7 +269,7 @@ H7Clicked  = False
 H8Clicked  = False
 H9Clicked  = False
 
-I1Clicked  = False 
+I1Clicked  = False
 I2Clicked  = False
 I3Clicked  = False
 I4Clicked  = False
@@ -268,7 +281,7 @@ I9Clicked  = False
 
 
 def guesslimit():
-    
+
     if A1Clicked == False:
         A1.configure(fg="black", bg="white", state=DISABLED)
     if A2Clicked == False:

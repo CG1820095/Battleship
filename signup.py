@@ -1,5 +1,5 @@
-from tkinter import *
-from tkinter import ttk, messagebox
+"""import tkinter for the gui"""
+from tkinter import Tk, ttk, messagebox
 import subprocess
 import sqlite3
 import re

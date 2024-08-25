@@ -1,4 +1,5 @@
-from tkinter import *
+"""tkinter module provides the majority of functions for the gui"""
+from tkinter import Tk, Frame, CENTER, Button, Label, DISABLED
 from tkinter import messagebox
 import subprocess
 import sqlite3
