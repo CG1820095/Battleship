@@ -354,26 +354,30 @@ def shiplimit():
         I9.configure(fg="black", bg="white", state=DISABLED)
 
 
+#for each unique board button:
 def xay1():
     """Function for the grid coordinate"""
     global A1CLICKED
-    A1CLICKED = not A1CLICKED
+    A1CLICKED = not A1CLICKED # Changes XYCLICKED to true
 
+    # Inserts relevant coordinates into board details (player2_ships)
     cursor.execute("INSERT INTO board_details(player2_ships) VALUES('A1')")
-
+    # Prints the database into the terminal
     for row in cursor.execute("select * from board_details "):
         print(row)
     connection.commit()
 
     global P2_SHIPCOUNT
-    P2_SHIPCOUNT += 1  # Update value of global variable.
+    P2_SHIPCOUNT += 1  # Increments the global ship count + 1
+    # Displays / Prints number of ships placed
     countlabel.config(text= (P2_SHIPCOUNT, " ship grids chosen"))
     print(P2_SHIPCOUNT , " ship grids placed")
 
+    # Sets the corresponding button to green and disabled, (feedback to user that its selected)
     A1.configure(fg="black", bg="green", state=DISABLED)
 
-    if P2_SHIPCOUNT >= 17:
-        shiplimit()
+    if P2_SHIPCOUNT >= 17: # Checks if ship count is greater than or equal to 17
+        shiplimit() #disables the board to prevent more than 17 grids being chosen
 
 
 def xay2():
@@ -2157,7 +2161,7 @@ def xiy9():
         shiplimit()
 
 
-
+#defininf each of the buttons layout on the board, with their unique commands
 A1 = Button(board2, text="A1", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xay1,)
 A2 = Button(board2, text="A2", padx = 15, pady = 15,

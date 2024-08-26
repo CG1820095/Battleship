@@ -469,7 +469,7 @@ def xay1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grid guessed"))
     print(P1GUESS_COUNT , " ship grid guessed")
 
@@ -491,7 +491,7 @@ def xay2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -513,7 +513,7 @@ def xay3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -535,7 +535,7 @@ def xay4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -557,7 +557,7 @@ def xay5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -579,7 +579,7 @@ def xay6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -601,7 +601,7 @@ def xay7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -623,7 +623,7 @@ def xay8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -645,7 +645,7 @@ def xay9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -669,7 +669,7 @@ def xby1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -691,7 +691,7 @@ def xby2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -713,7 +713,7 @@ def xby3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -735,7 +735,7 @@ def xby4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -757,7 +757,7 @@ def xby5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -779,7 +779,7 @@ def xby6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -801,7 +801,7 @@ def xby7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -823,7 +823,7 @@ def xby8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -845,7 +845,7 @@ def xby9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -869,7 +869,7 @@ def xcy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -891,7 +891,7 @@ def xcy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -913,7 +913,7 @@ def xcy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -935,7 +935,7 @@ def xcy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -957,7 +957,7 @@ def xcy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -979,7 +979,7 @@ def xcy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1001,7 +1001,7 @@ def xcy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1023,7 +1023,7 @@ def xcy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1045,7 +1045,7 @@ def xcy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1069,7 +1069,7 @@ def xdy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1091,7 +1091,7 @@ def xdy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1113,7 +1113,7 @@ def xdy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1135,7 +1135,7 @@ def xdy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1157,7 +1157,7 @@ def xdy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1179,7 +1179,7 @@ def xdy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1201,7 +1201,7 @@ def xdy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1223,7 +1223,7 @@ def xdy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1245,7 +1245,7 @@ def xdy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1269,7 +1269,7 @@ def xey1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1291,7 +1291,7 @@ def xey2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1313,7 +1313,7 @@ def xey3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1335,7 +1335,7 @@ def xey4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1357,7 +1357,7 @@ def xey5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1379,7 +1379,7 @@ def xey6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1401,7 +1401,7 @@ def xey7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1423,7 +1423,7 @@ def xey8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1445,7 +1445,7 @@ def xey9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1470,7 +1470,7 @@ def xfy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1492,7 +1492,7 @@ def xfy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1514,7 +1514,7 @@ def xfy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1536,7 +1536,7 @@ def xfy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1558,7 +1558,7 @@ def xfy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1580,7 +1580,7 @@ def xfy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1602,7 +1602,7 @@ def xfy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1624,7 +1624,7 @@ def xfy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1646,7 +1646,7 @@ def xfy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1671,7 +1671,7 @@ def xgy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1693,7 +1693,7 @@ def xgy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1715,7 +1715,7 @@ def xgy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1737,7 +1737,7 @@ def xgy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1759,7 +1759,7 @@ def xgy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1781,7 +1781,7 @@ def xgy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1803,7 +1803,7 @@ def xgy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1825,7 +1825,7 @@ def xgy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1847,7 +1847,7 @@ def xgy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1872,7 +1872,7 @@ def xhy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1894,7 +1894,7 @@ def xhy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1916,7 +1916,7 @@ def xhy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1938,7 +1938,7 @@ def xhy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1960,7 +1960,7 @@ def xhy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -1982,7 +1982,7 @@ def xhy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2004,7 +2004,7 @@ def xhy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2026,7 +2026,7 @@ def xhy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2048,7 +2048,7 @@ def xhy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2073,7 +2073,7 @@ def xiy1():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2095,7 +2095,7 @@ def xiy2():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2117,7 +2117,7 @@ def xiy3():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2139,7 +2139,7 @@ def xiy4():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2161,7 +2161,7 @@ def xiy5():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2183,7 +2183,7 @@ def xiy6():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2205,7 +2205,7 @@ def xiy7():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2227,7 +2227,7 @@ def xiy8():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2249,7 +2249,7 @@ def xiy9():
     connection.commit()
 
     global P1GUESS_COUNT
-    P1GUESS_COUNT += 1  # Update value of global variable.
+    P1GUESS_COUNT += 1  # Update value of win condition
     countlabel.config(text= (P1GUESS_COUNT, " ship grids chosen"))
     print(P1GUESS_COUNT , " ship grids placed")
 
@@ -2537,18 +2537,19 @@ def ship_history():
     """Function to check if a grid has been guessed, and if it has, check if it's a hit or a miss"""
     global P1WIN_CON
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A1 = '1')"):
-        if row == (1,):
+        #if the guess has been stored to be revealed again
+        if row == (1,): #is true 
             for row in cursor.execute("""SELECT EXISTS(select * from board_details
-                                      WHERE player2_ships = 'A1')"""):
-                if row == (0,):
+                                      WHERE player2_ships = 'A1')"""): #search if the coordinate is a ship
+                if row == (0,):#if its not then declare it a miss
                     print("A1 - miss")
                     A1.configure(fg="black", bg="white", state=DISABLED)
 
-                if row == (1,):
+                if row == (1,):#if it is the declare it a hit
                     print("A1 - hit")
                     A1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2565,7 +2566,7 @@ def ship_history():
                     print("A2 - hit")
                     A2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2582,7 +2583,7 @@ def ship_history():
                     print("A3 - hit")
                     A3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2599,7 +2600,7 @@ def ship_history():
                     print("A4 - hit")
                     A4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2616,7 +2617,7 @@ def ship_history():
                     print("A5 - hit")
                     A5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2633,7 +2634,7 @@ def ship_history():
                     print("A6 - hit")
                     A6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2650,7 +2651,7 @@ def ship_history():
                     print("A7 - hit")
                     A7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2667,7 +2668,7 @@ def ship_history():
                     print("A8 - hit")
                     A8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2684,7 +2685,7 @@ def ship_history():
                     print("A9 - hit")
                     A9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2702,7 +2703,7 @@ def ship_history():
                     print("B1 - hit")
                     B1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2719,7 +2720,7 @@ def ship_history():
                     print("B2 - hit")
                     B2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2736,7 +2737,7 @@ def ship_history():
                     print("B3 - hit")
                     B3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2753,7 +2754,7 @@ def ship_history():
                     print("B4 - hit")
                     B4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2770,7 +2771,7 @@ def ship_history():
                     print("B5 - hit")
                     B5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2787,7 +2788,7 @@ def ship_history():
                     print("B6 - hit")
                     B6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2804,7 +2805,7 @@ def ship_history():
                     print("B7 - hit")
                     B7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2821,7 +2822,7 @@ def ship_history():
                     print("B8 - hit")
                     B8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2838,7 +2839,7 @@ def ship_history():
                     print("B9 - hit")
                     B9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2856,7 +2857,7 @@ def ship_history():
                     print("C1 - hit")
                     C1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2873,7 +2874,7 @@ def ship_history():
                     print("C2 - hit")
                     C2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2890,7 +2891,7 @@ def ship_history():
                     print("C3 - hit")
                     C3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2907,7 +2908,7 @@ def ship_history():
                     print("C4 - hit")
                     C4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2924,7 +2925,7 @@ def ship_history():
                     print("C5 - hit")
                     C5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2941,7 +2942,7 @@ def ship_history():
                     print("C6 - hit")
                     C6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2958,7 +2959,7 @@ def ship_history():
                     print("C7 - hit")
                     C7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2975,7 +2976,7 @@ def ship_history():
                     print("C8 - hit")
                     C8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -2992,7 +2993,7 @@ def ship_history():
                     print("C9 - hit")
                     C9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3010,7 +3011,7 @@ def ship_history():
                     print("D1 - hit")
                     D1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3027,7 +3028,7 @@ def ship_history():
                     print("D2 - hit")
                     D2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3044,7 +3045,7 @@ def ship_history():
                     print("D3 - hit")
                     D3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3061,7 +3062,7 @@ def ship_history():
                     print("D4 - hit")
                     D4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3078,7 +3079,7 @@ def ship_history():
                     print("D5 - hit")
                     D5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3095,7 +3096,7 @@ def ship_history():
                     print("D6 - hit")
                     D6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3112,7 +3113,7 @@ def ship_history():
                     print("D7 - hit")
                     D7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3129,7 +3130,7 @@ def ship_history():
                     print("D8 - hit")
                     D8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3146,7 +3147,7 @@ def ship_history():
                     print("D9 - hit")
                     D9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3164,7 +3165,7 @@ def ship_history():
                     print("E1 - hit")
                     E1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3181,7 +3182,7 @@ def ship_history():
                     print("E2 - hit")
                     E2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3198,7 +3199,7 @@ def ship_history():
                     print("E3 - hit")
                     E3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3215,7 +3216,7 @@ def ship_history():
                     print("E4 - hit")
                     E4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3232,7 +3233,7 @@ def ship_history():
                     print("E5 - hit")
                     E5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3249,7 +3250,7 @@ def ship_history():
                     print("E6 - hit")
                     E6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3266,7 +3267,7 @@ def ship_history():
                     print("E7 - hit")
                     E7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3283,7 +3284,7 @@ def ship_history():
                     print("E8 - hit")
                     E8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3300,7 +3301,7 @@ def ship_history():
                     print("E9 - hit")
                     E9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3318,7 +3319,7 @@ def ship_history():
                     print("F1 - hit")
                     F1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3335,7 +3336,7 @@ def ship_history():
                     print("F2 - hit")
                     F2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3352,7 +3353,7 @@ def ship_history():
                     print("F3 - hit")
                     F3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3369,7 +3370,7 @@ def ship_history():
                     print("F4 - hit")
                     F4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3386,7 +3387,7 @@ def ship_history():
                     print("F5 - hit")
                     F5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3403,7 +3404,7 @@ def ship_history():
                     print("F6 - hit")
                     F6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3420,7 +3421,7 @@ def ship_history():
                     print("F7 - hit")
                     F7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3437,7 +3438,7 @@ def ship_history():
                     print("F8 - hit")
                     F8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3454,7 +3455,7 @@ def ship_history():
                     print("F9 - hit")
                     F9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3472,7 +3473,7 @@ def ship_history():
                     print("G1 - hit")
                     G1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3489,7 +3490,7 @@ def ship_history():
                     print("G2 - hit")
                     G2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3506,7 +3507,7 @@ def ship_history():
                     print("G3 - hit")
                     G3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3523,7 +3524,7 @@ def ship_history():
                     print("G4 - hit")
                     G4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3540,7 +3541,7 @@ def ship_history():
                     print("G5 - hit")
                     G5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3557,7 +3558,7 @@ def ship_history():
                     print("G6 - hit")
                     G6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3574,7 +3575,7 @@ def ship_history():
                     print("G7 - hit")
                     G7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3591,7 +3592,7 @@ def ship_history():
                     print("G8 - hit")
                     G8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3608,7 +3609,7 @@ def ship_history():
                     print("G9 - hit")
                     G9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3626,7 +3627,7 @@ def ship_history():
                     print("H1 - hit")
                     H1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3643,7 +3644,7 @@ def ship_history():
                     print("H2 - hit")
                     H2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3660,7 +3661,7 @@ def ship_history():
                     print("H3 - hit")
                     H3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3677,7 +3678,7 @@ def ship_history():
                     print("H4 - hit")
                     H4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3694,7 +3695,7 @@ def ship_history():
                     print("H5 - hit")
                     H5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3711,7 +3712,7 @@ def ship_history():
                     print("H6 - hit")
                     H6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3728,7 +3729,7 @@ def ship_history():
                     print("H7 - hit")
                     H7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3745,7 +3746,7 @@ def ship_history():
                     print("H8 - hit")
                     H8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3762,7 +3763,7 @@ def ship_history():
                     print("H9 - hit")
                     H9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3780,7 +3781,7 @@ def ship_history():
                     print("I1 - hit")
                     I1.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3797,7 +3798,7 @@ def ship_history():
                     print("I2 - hit")
                     I2.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3814,7 +3815,7 @@ def ship_history():
                     print("I3 - hit")
                     I3.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3831,7 +3832,7 @@ def ship_history():
                     print("I4 - hit")
                     I4.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3848,7 +3849,7 @@ def ship_history():
                     print("I5 - hit")
                     I5.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3865,7 +3866,7 @@ def ship_history():
                     print("I6 - hit")
                     I6.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3882,7 +3883,7 @@ def ship_history():
                     print("I7 - hit")
                     I7.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3899,7 +3900,7 @@ def ship_history():
                     print("I8 - hit")
                     I8.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3916,7 +3917,7 @@ def ship_history():
                     print("I9 - hit")
                     I9.configure(fg="black", bg="red", state=DISABLED)
 
-                    P1WIN_CON += 1  # Update value of global variable.
+                    P1WIN_CON += 1  # Update value of win condition
                     print(P1WIN_CON , "/17 player 2 ship grids found")
                     if P1WIN_CON >= 17:
                         p1winning()
@@ -3969,23 +3970,23 @@ def guesscheck():
 
         # if cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'"):
         #     A1.configure(fg="black", bg="red", state=DISABLED)
-        #     print("A1 - HIT") 
+        #     print("A1 - HIT")
         # elif cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'") :
         #     A1.configure(fg="black", bg="blue", state=DISABLED)
         #     print("A1 - miss")
 
-    if A2CLICKED is True:
+    if A2CLICKED is True: #if the button has been clicked
         for row in cursor.execute("""SELECT EXISTS(select * from board_details
-                                  WHERE player2_ships = 'A2')"""):
-            if row == (0,):
+                                  WHERE player2_ships = 'A2')"""): #search if the coordinate is a ship 
+            if row == (0,): #if its not then declare it a miss
                 print("A2 - miss")
                 A2.configure(fg="black", bg="white", state=DISABLED)
 
-            if row == (1,):
+            if row == (1,): #if it is the declare it a hit
                 print("A2 - hit")
                 A2.configure(fg="black", bg="red", state=DISABLED)
 
-        cursor.execute("INSERT INTO p1_reveals(A2) VALUES(1)")
+        cursor.execute("INSERT INTO p1_reveals(A2) VALUES(1)") #store the value, so the result of the guess can be displayed again later
         connection.commit()
 
     if A3CLICKED is True:

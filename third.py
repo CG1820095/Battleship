@@ -2179,7 +2179,7 @@ def xiy9():
         shiplimit()
 
 
-#each of the buttons layout on the board, with their unique commands
+#defininf each of the buttons layout on the board, with their unique commands
 A1 = Button(board1, text="A1", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xay1,)
 A2 = Button(board1, text="A2", padx = 15, pady = 15,
@@ -2359,7 +2359,7 @@ I8 = Button(board1, text="I8", padx = 15, pady = 15,
 I9 = Button(board1, text="I9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy9)
 
-
+#buttons being displayed with the grid method
 A1.grid(row = 0, column = 0,)
 A2.grid(row = 1, column = 0,)
 A3.grid(row = 2, column = 0,)

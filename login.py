@@ -43,7 +43,8 @@ def login_account():
 
     else: #if the password meets all the requirements then check if its saved to the database
         for row in cursor.execute("""SELECT EXISTS(SELECT * FROM account_details WHERE
-                                  username = '{}' and userpassword = '{}')""".format(username, password)):
+                                  username = '{}' and userpassword = '{}')"""
+                                  .format(username, password)):
 
             if row == (0,): #if row returns false, provide error message
                 MESSAGE_LABEL=ttk.Label(root,
