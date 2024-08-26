@@ -3945,7 +3945,7 @@ def guesscheck():
 
     if A2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A2)"""):
+                                      player1_ships = 'A2')"""):
             if row == (0,):
                 print("A2 - miss")
                 A2.configure(fg="black", bg="white", state=DISABLED)
@@ -3959,7 +3959,7 @@ def guesscheck():
 
     if A3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A3)"""):
+                                      player1_ships = 'A3')"""):
             if row == (0,):
                 print("A3 - miss")
                 A3.configure(fg="black", bg="white", state=DISABLED)
@@ -3973,7 +3973,7 @@ def guesscheck():
 
     if A4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A4)"""):
+                                      player1_ships = 'A4')"""):
             if row == (0,):
                 print("A4 - miss")
                 A4.configure(fg="black", bg="white", state=DISABLED)
@@ -3987,7 +3987,7 @@ def guesscheck():
 
     if A5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A5)"""):
+                                      player1_ships = 'A5')"""):
             if row == (0,):
                 print("A5 - miss")
                 A5.configure(fg="black", bg="white", state=DISABLED)
@@ -4001,7 +4001,7 @@ def guesscheck():
 
     if A6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A6)"""):
+                                      player1_ships = 'A6')"""):
             if row == (0,):
                 print("A6 - miss")
                 A6.configure(fg="black", bg="white", state=DISABLED)
@@ -4015,7 +4015,7 @@ def guesscheck():
 
     if A7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A7)"""):
+                                      player1_ships = 'A7')"""):
             if row == (0,):
                 print("A7 - miss")
                 A7.configure(fg="black", bg="white", state=DISABLED)
@@ -4029,7 +4029,7 @@ def guesscheck():
 
     if A8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A8)"""):
+                                      player1_ships = 'A8')"""):
             if row == (0,):
                 print("A8 - miss")
                 A8.configure(fg="black", bg="white", state=DISABLED)
@@ -4043,7 +4043,7 @@ def guesscheck():
 
     if A9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'A9)"""):
+                                      player1_ships = 'A9')"""):
             if row == (0,):
                 print("A9 - miss")
                 A9.configure(fg="black", bg="white", state=DISABLED)
@@ -4058,7 +4058,7 @@ def guesscheck():
 
     if B1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B1)"""):
+                                      player1_ships = 'B1')"""):
             if row == (0,):
                 print("B1 - miss")
                 B1.configure(fg="black", bg="white", state=DISABLED)
@@ -4072,7 +4072,7 @@ def guesscheck():
 
     if B2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B2)"""):
+                                      player1_ships = 'B2')"""):
             if row == (0,):
                 print("B2 - miss")
                 B2.configure(fg="black", bg="white", state=DISABLED)
@@ -4086,7 +4086,7 @@ def guesscheck():
 
     if B3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B3)"""):
+                                      player1_ships = 'B3')"""):
             if row == (0,):
                 print("B3 - miss")
                 B3.configure(fg="black", bg="white", state=DISABLED)
@@ -4100,7 +4100,7 @@ def guesscheck():
 
     if B4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B4)"""):
+                                      player1_ships = 'B4')"""):
             if row == (0,):
                 print("B4 - miss")
                 B4.configure(fg="black", bg="white", state=DISABLED)
@@ -4114,7 +4114,7 @@ def guesscheck():
 
     if B5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B5)"""):
+                                      player1_ships = 'B5')"""):
             if row == (0,):
                 print("B5 - miss")
                 B5.configure(fg="black", bg="white", state=DISABLED)
@@ -4128,7 +4128,7 @@ def guesscheck():
 
     if B6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B6)"""):
+                                      player1_ships = 'B6')"""):
             if row == (0,):
                 print("B6 - miss")
                 B6.configure(fg="black", bg="white", state=DISABLED)
@@ -4142,7 +4142,7 @@ def guesscheck():
 
     if B7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B7)"""):
+                                      player1_ships = 'B7')"""):
             if row == (0,):
                 print("B7 - miss")
                 B7.configure(fg="black", bg="white", state=DISABLED)
@@ -4156,7 +4156,7 @@ def guesscheck():
 
     if B8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B8)"""):
+                                      player1_ships = 'B8')"""):
             if row == (0,):
                 print("B8 - miss")
                 B8.configure(fg="black", bg="white", state=DISABLED)
@@ -4170,7 +4170,7 @@ def guesscheck():
 
     if B9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'B9)"""):
+                                      player1_ships = 'B9')"""):
             if row == (0,):
                 print("B9 - miss")
                 B9.configure(fg="black", bg="white", state=DISABLED)
@@ -4185,7 +4185,7 @@ def guesscheck():
 
     if C1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C1)"""):
+                                      player1_ships = 'C1')"""):
             if row == (0,):
                 print("C1 - miss")
                 C1.configure(fg="black", bg="white", state=DISABLED)
@@ -4199,7 +4199,7 @@ def guesscheck():
 
     if C2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C2)"""):
+                                      player1_ships = 'C2')"""):
             if row == (0,):
                 print("C2 - miss")
                 C2.configure(fg="black", bg="white", state=DISABLED)
@@ -4213,7 +4213,7 @@ def guesscheck():
 
     if C3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C3)"""):
+                                      player1_ships = 'C3')"""):
             if row == (0,):
                 print("C3 - miss")
                 C3.configure(fg="black", bg="white", state=DISABLED)
@@ -4227,7 +4227,7 @@ def guesscheck():
 
     if C4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C4)"""):
+                                      player1_ships = 'C4')"""):
             if row == (0,):
                 print("C4 - miss")
                 C4.configure(fg="black", bg="white", state=DISABLED)
@@ -4241,7 +4241,7 @@ def guesscheck():
 
     if C5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C5)"""):
+                                      player1_ships = 'C5')"""):
             if row == (0,):
                 print("C5 - miss")
                 C5.configure(fg="black", bg="white", state=DISABLED)
@@ -4255,7 +4255,7 @@ def guesscheck():
 
     if C6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C6)"""):
+                                      player1_ships = 'C6')"""):
             if row == (0,):
                 print("C6 - miss")
                 C6.configure(fg="black", bg="white", state=DISABLED)
@@ -4269,7 +4269,7 @@ def guesscheck():
 
     if C7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C7)"""):
+                                      player1_ships = 'C7')"""):
             if row == (0,):
                 print("C7 - miss")
                 C7.configure(fg="black", bg="white", state=DISABLED)
@@ -4283,7 +4283,7 @@ def guesscheck():
 
     if C8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C8)"""):
+                                      player1_ships = 'C8')"""):
             if row == (0,):
                 print("C8 - miss")
                 C8.configure(fg="black", bg="white", state=DISABLED)
@@ -4297,7 +4297,7 @@ def guesscheck():
 
     if C9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'C9)"""):
+                                      player1_ships = 'C9')"""):
             if row == (0,):
                 print("C9 - miss")
                 C9.configure(fg="black", bg="white", state=DISABLED)
@@ -4312,7 +4312,7 @@ def guesscheck():
 
     if D1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D1)"""):
+                                      player1_ships = 'D1')"""):
             if row == (0,):
                 print("D1 - miss")
                 D1.configure(fg="black", bg="white", state=DISABLED)
@@ -4326,7 +4326,7 @@ def guesscheck():
 
     if D2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D2)"""):
+                                      player1_ships = 'D2')"""):
             if row == (0,):
                 print("D2 - miss")
                 D2.configure(fg="black", bg="white", state=DISABLED)
@@ -4340,7 +4340,7 @@ def guesscheck():
 
     if D3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D3)"""):
+                                      player1_ships = 'D3')"""):
             if row == (0,):
                 print("D3 - miss")
                 D3.configure(fg="black", bg="white", state=DISABLED)
@@ -4354,7 +4354,7 @@ def guesscheck():
 
     if D4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D4)"""):
+                                      player1_ships = 'D4')"""):
             if row == (0,):
                 print("D4 - miss")
                 D4.configure(fg="black", bg="white", state=DISABLED)
@@ -4368,7 +4368,7 @@ def guesscheck():
 
     if D5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D5)"""):
+                                      player1_ships = 'D5')"""):
             if row == (0,):
                 print("D5 - miss")
                 D5.configure(fg="black", bg="white", state=DISABLED)
@@ -4382,7 +4382,7 @@ def guesscheck():
 
     if D6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D6)"""):
+                                      player1_ships = 'D6')"""):
             if row == (0,):
                 print("D6 - miss")
                 D6.configure(fg="black", bg="white", state=DISABLED)
@@ -4396,7 +4396,7 @@ def guesscheck():
 
     if D7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D7)"""):
+                                      player1_ships = 'D7')"""):
             if row == (0,):
                 print("D7 - miss")
                 D7.configure(fg="black", bg="white", state=DISABLED)
@@ -4410,7 +4410,7 @@ def guesscheck():
 
     if D8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D8)"""):
+                                      player1_ships = 'D8')"""):
             if row == (0,):
                 print("D8 - miss")
                 D8.configure(fg="black", bg="white", state=DISABLED)
@@ -4424,7 +4424,7 @@ def guesscheck():
 
     if D9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'D9)"""):
+                                      player1_ships = 'D9')"""):
             if row == (0,):
                 print("D9 - miss")
                 D9.configure(fg="black", bg="white", state=DISABLED)
@@ -4439,7 +4439,7 @@ def guesscheck():
 
     if E1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E1)"""):
+                                      player1_ships = 'E1')"""):
             if row == (0,):
                 print("E1 - miss")
                 E1.configure(fg="black", bg="white", state=DISABLED)
@@ -4453,7 +4453,7 @@ def guesscheck():
 
     if E2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E2)"""):
+                                      player1_ships = 'E2')"""):
             if row == (0,):
                 print("E2 - miss")
                 E2.configure(fg="black", bg="white", state=DISABLED)
@@ -4467,7 +4467,7 @@ def guesscheck():
 
     if E3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E3)"""):
+                                      player1_ships = 'E3')"""):
             if row == (0,):
                 print("E3 - miss")
                 E3.configure(fg="black", bg="white", state=DISABLED)
@@ -4481,7 +4481,7 @@ def guesscheck():
 
     if E4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E4)"""):
+                                      player1_ships = 'E4')"""):
             if row == (0,):
                 print("E4 - miss")
                 E4.configure(fg="black", bg="white", state=DISABLED)
@@ -4495,7 +4495,7 @@ def guesscheck():
 
     if E5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E5)"""):
+                                      player1_ships = 'E5')"""):
             if row == (0,):
                 print("E5 - miss")
                 E5.configure(fg="black", bg="white", state=DISABLED)
@@ -4509,7 +4509,7 @@ def guesscheck():
 
     if E6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E6)"""):
+                                      player1_ships = 'E6')"""):
             if row == (0,):
                 print("E6 - miss")
                 E6.configure(fg="black", bg="white", state=DISABLED)
@@ -4523,7 +4523,7 @@ def guesscheck():
 
     if E7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E7)"""):
+                                      player1_ships = 'E7')"""):
             if row == (0,):
                 print("E7 - miss")
                 E7.configure(fg="black", bg="white", state=DISABLED)
@@ -4537,7 +4537,7 @@ def guesscheck():
 
     if E8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E8)"""):
+                                      player1_ships = 'E8')"""):
             if row == (0,):
                 print("E8 - miss")
                 E8.configure(fg="black", bg="white", state=DISABLED)
@@ -4551,7 +4551,7 @@ def guesscheck():
 
     if E9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'E9)"""):
+                                      player1_ships = 'E9')"""):
             if row == (0,):
                 print("E9 - miss")
                 E9.configure(fg="black", bg="white", state=DISABLED)
@@ -4566,7 +4566,7 @@ def guesscheck():
 
     if F1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F1)"""):
+                                      player1_ships = 'F1')"""):
             if row == (0,):
                 print("F1 - miss")
                 F1.configure(fg="black", bg="white", state=DISABLED)
@@ -4580,7 +4580,7 @@ def guesscheck():
 
     if F2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F2)"""):
+                                      player1_ships = 'F2')"""):
             if row == (0,):
                 print("F2 - miss")
                 F2.configure(fg="black", bg="white", state=DISABLED)
@@ -4594,7 +4594,7 @@ def guesscheck():
 
     if F3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F3)"""):
+                                      player1_ships = 'F3')"""):
             if row == (0,):
                 print("F3 - miss")
                 F3.configure(fg="black", bg="white", state=DISABLED)
@@ -4608,7 +4608,7 @@ def guesscheck():
 
     if F4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F4)"""):
+                                      player1_ships = 'F4')"""):
             if row == (0,):
                 print("F4 - miss")
                 F4.configure(fg="black", bg="white", state=DISABLED)
@@ -4622,7 +4622,7 @@ def guesscheck():
 
     if F5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F5)"""):
+                                      player1_ships = 'F5')"""):
             if row == (0,):
                 print("F5 - miss")
                 F5.configure(fg="black", bg="white", state=DISABLED)
@@ -4636,7 +4636,7 @@ def guesscheck():
 
     if F6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F6)"""):
+                                      player1_ships = 'F6')"""):
             if row == (0,):
                 print("F6 - miss")
                 F6.configure(fg="black", bg="white", state=DISABLED)
@@ -4650,7 +4650,7 @@ def guesscheck():
 
     if F7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F7)"""):
+                                      player1_ships = 'F7')"""):
             if row == (0,):
                 print("F7 - miss")
                 F7.configure(fg="black", bg="white", state=DISABLED)
@@ -4664,7 +4664,7 @@ def guesscheck():
 
     if F8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F8)"""):
+                                      player1_ships = 'F8')"""):
             if row == (0,):
                 print("F8 - miss")
                 F8.configure(fg="black", bg="white", state=DISABLED)
@@ -4678,7 +4678,7 @@ def guesscheck():
 
     if F9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'F9)"""):
+                                      player1_ships = 'F9')"""):
             if row == (0,):
                 print("F9 - miss")
                 F9.configure(fg="black", bg="white", state=DISABLED)
@@ -4693,7 +4693,7 @@ def guesscheck():
 
     if G1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G1)"""):
+                                      player1_ships = 'G1')"""):
             if row == (0,):
                 print("G1 - miss")
                 G1.configure(fg="black", bg="white", state=DISABLED)
@@ -4707,7 +4707,7 @@ def guesscheck():
 
     if G2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G2)"""):
+                                      player1_ships = 'G2')"""):
             if row == (0,):
                 print("G2 - miss")
                 G2.configure(fg="black", bg="white", state=DISABLED)
@@ -4721,7 +4721,7 @@ def guesscheck():
 
     if G3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G3)"""):
+                                      player1_ships = 'G3')"""):
             if row == (0,):
                 print("G3 - miss")
                 G3.configure(fg="black", bg="white", state=DISABLED)
@@ -4735,7 +4735,7 @@ def guesscheck():
 
     if G4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G4)"""):
+                                      player1_ships = 'G4')"""):
             if row == (0,):
                 print("G4 - miss")
                 G4.configure(fg="black", bg="white", state=DISABLED)
@@ -4749,7 +4749,7 @@ def guesscheck():
 
     if G5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G5)"""):
+                                      player1_ships = 'G5')"""):
             if row == (0,):
                 print("G5 - miss")
                 G5.configure(fg="black", bg="white", state=DISABLED)
@@ -4763,7 +4763,7 @@ def guesscheck():
 
     if G6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G6)"""):
+                                      player1_ships = 'G6')"""):
             if row == (0,):
                 print("G6 - miss")
                 G6.configure(fg="black", bg="white", state=DISABLED)
@@ -4777,7 +4777,7 @@ def guesscheck():
 
     if G7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G7)"""):
+                                      player1_ships = 'G7')"""):
             if row == (0,):
                 print("G7 - miss")
                 G7.configure(fg="black", bg="white", state=DISABLED)
@@ -4791,7 +4791,7 @@ def guesscheck():
 
     if G8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G8)"""):
+                                      player1_ships = 'G8')"""):
             if row == (0,):
                 print("G8 - miss")
                 G8.configure(fg="black", bg="white", state=DISABLED)
@@ -4805,7 +4805,7 @@ def guesscheck():
 
     if G9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'G9)"""):
+                                      player1_ships = 'G9')"""):
             if row == (0,):
                 print("G9 - miss")
                 G9.configure(fg="black", bg="white", state=DISABLED)
@@ -4820,7 +4820,7 @@ def guesscheck():
 
     if H1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H1)"""):
+                                      player1_ships = 'H1')"""):
             if row == (0,):
                 print("H1 - miss")
                 H1.configure(fg="black", bg="white", state=DISABLED)
@@ -4834,7 +4834,7 @@ def guesscheck():
 
     if H2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H2)"""):
+                                      player1_ships = 'H2')"""):
             if row == (0,):
                 print("H2 - miss")
                 H2.configure(fg="black", bg="white", state=DISABLED)
@@ -4848,7 +4848,7 @@ def guesscheck():
 
     if H3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H3)"""):
+                                      player1_ships = 'H3')"""):
             if row == (0,):
                 print("H3 - miss")
                 H3.configure(fg="black", bg="white", state=DISABLED)
@@ -4862,7 +4862,7 @@ def guesscheck():
 
     if H4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H4)"""):
+                                      player1_ships = 'H4')"""):
             if row == (0,):
                 print("H4 - miss")
                 H4.configure(fg="black", bg="white", state=DISABLED)
@@ -4876,7 +4876,7 @@ def guesscheck():
 
     if H5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H5)"""):
+                                      player1_ships = 'H5')"""):
             if row == (0,):
                 print("H5 - miss")
                 H5.configure(fg="black", bg="white", state=DISABLED)
@@ -4890,7 +4890,7 @@ def guesscheck():
 
     if H6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H6)"""):
+                                      player1_ships = 'H6')"""):
             if row == (0,):
                 print("H6 - miss")
                 H6.configure(fg="black", bg="white", state=DISABLED)
@@ -4904,7 +4904,7 @@ def guesscheck():
 
     if H7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H7)"""):
+                                      player1_ships = 'H7')"""):
             if row == (0,):
                 print("H7 - miss")
                 H7.configure(fg="black", bg="white", state=DISABLED)
@@ -4918,7 +4918,7 @@ def guesscheck():
 
     if H8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H8)"""):
+                                      player1_ships = 'H8')"""):
             if row == (0,):
                 print("H8 - miss")
                 H8.configure(fg="black", bg="white", state=DISABLED)
@@ -4932,7 +4932,7 @@ def guesscheck():
 
     if H9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'H9)"""):
+                                      player1_ships = 'H9')"""):
             if row == (0,):
                 print("H9 - miss")
                 H9.configure(fg="black", bg="white", state=DISABLED)
@@ -4947,7 +4947,7 @@ def guesscheck():
 
     if I1CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I1)"""):
+                                      player1_ships = 'I1')"""):
             if row == (0,):
                 print("I1 - miss")
                 I1.configure(fg="black", bg="white", state=DISABLED)
@@ -4961,7 +4961,7 @@ def guesscheck():
 
     if I2CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I2)"""):
+                                      player1_ships = 'I2')"""):
             if row == (0,):
                 print("I2 - miss")
                 I2.configure(fg="black", bg="white", state=DISABLED)
@@ -4975,7 +4975,7 @@ def guesscheck():
 
     if I3CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I3)"""):
+                                      player1_ships = 'I3')"""):
             if row == (0,):
                 print("I3 - miss")
                 I3.configure(fg="black", bg="white", state=DISABLED)
@@ -4989,7 +4989,7 @@ def guesscheck():
 
     if I4CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I4)"""):
+                                      player1_ships = 'I4')"""):
             if row == (0,):
                 print("I4 - miss")
                 I4.configure(fg="black", bg="white", state=DISABLED)
@@ -5003,7 +5003,7 @@ def guesscheck():
 
     if I5CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I5)"""):
+                                      player1_ships = 'I5')"""):
             if row == (0,):
                 print("I5 - miss")
                 I5.configure(fg="black", bg="white", state=DISABLED)
@@ -5017,7 +5017,7 @@ def guesscheck():
 
     if I6CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I6)"""):
+                                      player1_ships = 'I6')"""):
             if row == (0,):
                 print("I6 - miss")
                 I6.configure(fg="black", bg="white", state=DISABLED)
@@ -5031,7 +5031,7 @@ def guesscheck():
 
     if I7CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I7)"""):
+                                      player1_ships = 'I7')"""):
             if row == (0,):
                 print("I7 - miss")
                 I7.configure(fg="black", bg="white", state=DISABLED)
@@ -5045,7 +5045,7 @@ def guesscheck():
 
     if I8CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I8)"""):
+                                      player1_ships = 'I8')"""):
             if row == (0,):
                 print("I8 - miss")
                 I8.configure(fg="black", bg="white", state=DISABLED)
@@ -5059,7 +5059,7 @@ def guesscheck():
 
     if I9CLICKED is True:
         for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
-                                      player1_ships = 'I9)"""):
+                                      player1_ships = 'I9')"""):
             if row == (0,):
                 print("I9 - miss")
                 I9.configure(fg="black", bg="white", state=DISABLED)

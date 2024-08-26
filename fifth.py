@@ -2277,25 +2277,25 @@ A7 = Button(board3, text="A7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xay7)
 A8 = Button(board3, text="A8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xay8)
-A9 = Button(board3, text="A9", papadx = 15, pady = 15,
+A9 = Button(board3, text="A9", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xay9)
 
 
 B1 = Button(board3, text="B1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xby1)
-B2 = Button(board3, text="B2", papadx = 15, pady = 15,
+B2 = Button(board3, text="B2", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xby2)
 B3 = Button(board3, text="B3", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xby3)
-B4 = Button(board3, text="B4", papadx = 15, pady = 15,
+B4 = Button(board3, text="B4", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xby4)
 B5 = Button(board3, text="B5", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xby5)
-B6 = Button(board3, text="B6", papadx = 15, pady = 15,
+B6 = Button(board3, text="B6", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xby6)
 B7 = Button(board3, text="B7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xby7)
-B8 = Button(board3, text="B8", papadx = 15, pady = 15,
+B8 = Button(board3, text="B8", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xby8)
 B9 = Button(board3, text="B9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xby9)
@@ -2305,15 +2305,15 @@ C1 = Button(board3, text="C1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy1)
 C2 = Button(board3, text="C2", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy2)
-C3 = Button(board3, text="C3", papadx = 15, pady = 15,
+C3 = Button(board3, text="C3", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xcy3)
 C4 = Button(board3, text="C4", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy4)
-C5 = Button(board3, text="C5", papadx = 15, pady = 15,
+C5 = Button(board3, text="C5", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xcy5)
 C6 = Button(board3, text="C6", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy6)
-C7 = Button(board3, text="C7", papadx = 15, pady = 15,
+C7 = Button(board3, text="C7", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xcy7)
 C8 = Button(board3, text="C8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy8)
@@ -2321,7 +2321,7 @@ C9 = Button(board3, text="C9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xcy9)
 
 
-D1 = Button(board3, text="D1", papadx = 15, pady = 15,
+D1 = Button(board3, text="D1", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xdy1)
 D2 = Button(board3, text="D2", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xdy2)
@@ -2337,25 +2337,25 @@ D7 = Button(board3, text="D7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xdy7)
 D8 = Button(board3, text="D8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xdy8)
-D9 = Button(board3, text="D9", papadx = 15, pady = 15,
+D9 = Button(board3, text="D9", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xdy9)
 
 
 E1 = Button(board3, text="E1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xey1)
-E2 = Button(board3, text="E2", papadx = 15, pady = 15,
+E2 = Button(board3, text="E2", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xey2)
 E3 = Button(board3, text="E3", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xey3)
-E4 = Button(board3, text="E4", papadx = 15, pady = 15,
+E4 = Button(board3, text="E4", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xey4)
 E5 = Button(board3, text="E5", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xey5)
-E6 = Button(board3, text="E6", papadx = 15, pady = 15,
+E6 = Button(board3, text="E6", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xey6)
 E7 = Button(board3, text="E7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xey7)
-E8 = Button(board3, text="E8", papadx = 15, pady = 15,
+E8 = Button(board3, text="E8", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xey8)
 E9 = Button(board3, text="E9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xey9)
@@ -2365,15 +2365,15 @@ F1 = Button(board3, text="F1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy1)
 F2 = Button(board3, text="F2", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy2)
-F3 = Button(board3, text="F3", papadx = 15, pady = 15,
+F3 = Button(board3, text="F3", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xfy3)
 F4 = Button(board3, text="F4", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy4)
-F5 = Button(board3, text="F5", papadx = 15, pady = 15,
+F5 = Button(board3, text="F5", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xfy5)
 F6 = Button(board3, text="F6", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy6)
-F7 = Button(board3, text="F7", papadx = 15, pady = 15,
+F7 = Button(board3, text="F7", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xfy7)
 F8 = Button(board3, text="F8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy8)
@@ -2381,7 +2381,7 @@ F9 = Button(board3, text="F9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xfy9)
 
 
-G1 = Button(board3, text="G1", papadx = 15, pady = 15,
+G1 = Button(board3, text="G1", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xgy1)
 G2 = Button(board3, text="G2", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xgy2)
@@ -2397,25 +2397,25 @@ G7 = Button(board3, text="G7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xgy7)
 G8 = Button(board3, text="G8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xgy8)
-G9 = Button(board3, text="G9", papadx = 15, pady = 15,
+G9 = Button(board3, text="G9", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xgy9)
 
 
 H1 = Button(board3, text="H1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xhy1)
-H2 = Button(board3, text="H2", papadx = 15, pady = 15,
+H2 = Button(board3, text="H2", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xhy2)
 H3 = Button(board3, text="H3", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xhy3)
-H4 = Button(board3, text="H4", papadx = 15, pady = 15,
+H4 = Button(board3, text="H4", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xhy4)
 H5 = Button(board3, text="H5", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xhy5)
-H6 = Button(board3, text="H6", papadx = 15, pady = 15,
+H6 = Button(board3, text="H6", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xhy6)
 H7 = Button(board3, text="H7", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xhy7)
-H8 = Button(board3, text="H8", papadx = 15, pady = 15,
+H8 = Button(board3, text="H8", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xhy8)
 H9 = Button(board3, text="H9", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xhy9)
@@ -2425,15 +2425,15 @@ I1 = Button(board3, text="I1", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy1)
 I2 = Button(board3, text="I2", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy2)
-I3 = Button(board3, text="I3", papadx = 15, pady = 15,
+I3 = Button(board3, text="I3", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xiy3)
 I4 = Button(board3, text="I4", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy4)
-I5 = Button(board3, text="I5", papadx = 15, pady = 15,
+I5 = Button(board3, text="I5", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xiy5)
 I6 = Button(board3, text="I6", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy6)
-I7 = Button(board3, text="I7", papadx = 15, pady = 15,
+I7 = Button(board3, text="I7", padx = 15, pady = 15,
             fg="white", bg="blue", activebackground="hot pink", command = xiy7)
 I8 = Button(board3, text="I8", padx = 15, pady = 15,
             fg="black", bg="light blue", activebackground="hot pink", command = xiy8)
