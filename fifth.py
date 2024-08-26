@@ -21,9 +21,6 @@ cursor.execute("""create table if not exists board_details
                 (player1_ships text, player2_ships text, player1_guess text, player2_guess text)""")
 connection.commit()
 
-#board_list = {"A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool"}
-#cursor.execute("create table if not exists p1_reveals('{}')".format(board_list))
-#cursor.execute("create table if not exists p2_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool, B1 bool, B2 bool, B3 bool, B4 bool, B5 bool, B6 bool, B7 bool, B8 bool, B9 bool, C1 bool, C2 bool, C3 bool, C4 bool, C5 bool, C6 bool, C7 bool, C8 bool, C9 bool, D1 bool, D2 bool, D3 bool, D4 bool, D5 bool, D6 bool, D7 bool, D8 bool, D9 bool, E1 bool, E2 bool, E3 bool, E4 bool, E5 bool, E6 bool, E7 bool, E8 bool, E9 bool, F1 bool, F2 bool, F3 bool, F4 bool, F5 bool, F6 bool, F7 bool, F8 bool, F9 bool, G1 bool, G2 bool, G3 bool, G4 bool, G5 bool, G6 bool, G7 bool, G8 bool, G9 bool, H1 bool, H2 bool, H3 bool, H4 bool, H5 bool, H6 bool, H7 bool, H8 bool, H9 bool, I1 bool, I2 bool, I3 bool, I4 bool, I5 bool, I6 bool, I7 bool, I8 bool, I9 bool)")
 
 cursor.execute("""
     create table if not exists 
@@ -3931,29 +3928,9 @@ ship_history()
 
 
 
-
-#cursor.execute("create table if not exists p1_reveals(A1 bool, A2 bool, A3 bool, A4 bool, A5 bool, A6 bool, A7 bool, A8 bool, A9 bool)")
-
-
-
-
-# cursor.execute("SELECT * FROM board_details WHERE player1_ships = '{}' and player2_guess = '{}'".format(A1CLICKED))
-
-# for row in cursor.execute("select * from board_details "): print(row)
-
-# connection.commit()
-
 def guesscheck():
     """Function for when player submits their guess"""
     if A1CLICKED is True:
-        #cursor.execute("SELECT EXISTS(SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1')")
-
-# for row in cursor.execute("SELECT EXISTS(select * from board_details WHERE player1_ships = 'A1' and player2_guess = 'A1')"):
-# if row == (0,):
-#     print("miss")
-# if row == (1,):
-#     print("hit")
-
         for row in cursor.execute("""SELECT EXISTS(select * from board_details
                                   WHERE player2_ships = 'A1')"""):
             if row == (0,):
@@ -3967,14 +3944,6 @@ def guesscheck():
         cursor.execute("INSERT INTO p1_reveals(A1) VALUES(1)")
         connection.commit()
 
-        #cursor.execute("SELECT IF(EXISTS(SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1')) AS 'result' FROM board_details;")
-
-        # if cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'"):
-        #     A1.configure(fg="black", bg="red", state=DISABLED)
-        #     print("A1 - HIT")
-        # elif cursor.execute("SELECT * FROM board_details WHERE player1_ships = 'A1' and player2_guess = 'A1'") :
-        #     A1.configure(fg="black", bg="blue", state=DISABLED)
-        #     print("A1 - miss")
 
     if A2CLICKED is True: #if the button has been clicked
         #search if the coordinate is a ship

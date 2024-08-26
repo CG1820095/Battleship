@@ -21,8 +21,15 @@ board1.place(relx=0.5, rely=0.5, anchor= CENTER,)
 connection = sqlite3.connect("battleships.db")
 cursor = connection.cursor()
 
+
 cursor.execute("""create table if not exists board_details
                 (player1_ships text, player2_ships text, player1_guess text, player2_guess text)""")
+connection.commit()
+
+#incase the previous game ended, but didn't clear its table
+cursor.execute("UPDATE board_details SET player1_ships = NULL")
+cursor.execute("""DELETE FROM board_details WHERE
+                player1_ships IS NULL AND player2_ships IS NULL""")
 connection.commit()
 
 #to end the game without errors for the next time, the table is dropped
