@@ -2533,7 +2533,7 @@ I9.grid(row = 8, column = 8,)
 def ship_history():
     """Function for the grid coordinate"""
     global P2WIN_CON
-    for row in cursor.execute("SELECT EXISTS(select * from p2_reveals WHERE A1 = '1')"): 
+    for row in cursor.execute("SELECT EXISTS(select * from p2_reveals WHERE A1 = '1')"):
         #if the guess has been stored to be revealed again
         if row == (1,): #is true
             for row in cursor.execute("""SELECT EXISTS(select * from board_details WHERE
@@ -3941,7 +3941,8 @@ def guesscheck():
                 print("A1 - hit")
                 A1.configure(fg="black", bg="red", state=DISABLED)
 
-        cursor.execute("INSERT INTO p2_reveals(A1) VALUES(1)")#store the value, so the result of the guess can be displayed again later
+        cursor.execute("INSERT INTO p2_reveals(A1) VALUES(1)")
+        #store the value, so the result of the guess can be displayed again later
         connection.commit()
 
     if A2CLICKED is True:

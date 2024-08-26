@@ -2538,9 +2538,10 @@ def ship_history():
     global P1WIN_CON
     for row in cursor.execute("SELECT EXISTS(select * from p1_reveals WHERE A1 = '1')"):
         #if the guess has been stored to be revealed again
-        if row == (1,): #is true 
+        if row == (1,): #is true
+            #search if the coordinate is a ship
             for row in cursor.execute("""SELECT EXISTS(select * from board_details
-                                      WHERE player2_ships = 'A1')"""): #search if the coordinate is a ship
+                                      WHERE player2_ships = 'A1')"""):
                 if row == (0,):#if its not then declare it a miss
                     print("A1 - miss")
                     A1.configure(fg="black", bg="white", state=DISABLED)
@@ -3976,8 +3977,9 @@ def guesscheck():
         #     print("A1 - miss")
 
     if A2CLICKED is True: #if the button has been clicked
+        #search if the coordinate is a ship
         for row in cursor.execute("""SELECT EXISTS(select * from board_details
-                                  WHERE player2_ships = 'A2')"""): #search if the coordinate is a ship 
+                                  WHERE player2_ships = 'A2')"""):
             if row == (0,): #if its not then declare it a miss
                 print("A2 - miss")
                 A2.configure(fg="black", bg="white", state=DISABLED)
@@ -3986,7 +3988,8 @@ def guesscheck():
                 print("A2 - hit")
                 A2.configure(fg="black", bg="red", state=DISABLED)
 
-        cursor.execute("INSERT INTO p1_reveals(A2) VALUES(1)") #store the value, so the result of the guess can be displayed again later
+        cursor.execute("INSERT INTO p1_reveals(A2) VALUES(1)")
+        #store the value, so the result of the guess can be displayed again later
         connection.commit()
 
     if A3CLICKED is True:

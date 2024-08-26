@@ -1,6 +1,5 @@
 """tkinter provides the majority of functions for the gui"""
-from tkinter import Tk, Frame, CENTER, Button, Label, DISABLED
-from tkinter import messagebox
+from tkinter import Tk, Frame, CENTER, Button, Label, DISABLED, messagebox
 import subprocess
 import sqlite3
 from PIL import ImageTk, Image
